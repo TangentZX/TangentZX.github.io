@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Tangent丶ZXのBlog</title>
+  
+  <subtitle>Iso | CTF</subtitle>
+  <link href="https://tangentzx.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://tangentzx.github.io/"/>
+  <updated>2025-09-29T17:54:57.228Z</updated>
+  <id>https://tangentzx.github.io/</id>
+  
+  <author>
+    <name>Tangent丶ZX</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World!</title>
+    <link href="https://tangentzx.github.io/2025/09/30/hello-world/"/>
+    <id>https://tangentzx.github.io/2025/09/30/hello-world/</id>
+    <published>2025-09-29T17:54:00.000Z</published>
+    <updated>2025-09-29T17:54:57.228Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
