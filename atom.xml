@@ -6,7 +6,7 @@
   <link href="https://tangentzx.github.io/atom.xml" rel="self"/>
   
   <link href="https://tangentzx.github.io/"/>
-  <updated>2025-09-29T17:54:57.228Z</updated>
+  <updated>2025-10-02T12:47:20.215Z</updated>
   <id>https://tangentzx.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>线性代数_矩阵笔记</title>
+    <link href="https://tangentzx.github.io/2025/10/02/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-%E7%9F%A9%E9%98%B5%E7%AC%94%E8%AE%B0/"/>
+    <id>https://tangentzx.github.io/2025/10/02/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-%E7%9F%A9%E9%98%B5%E7%AC%94%E8%AE%B0/</id>
+    <published>2025-10-02T11:55:12.000Z</published>
+    <updated>2025-10-02T12:47:20.215Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_%E7%9F%A9%E9%98%B5%E7%AC%94%E8%AE%B0-26.jpg" alt="笔记图片" loading="lazy"><br><img src="/images/%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_%E7%9F%A9%E9%98%B5%E7%AC%94%E8%AE%B0-27.jpg" alt="笔记图片" loading="lazy"><br><img src="/images/%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_%E7%9F%A9%E9%98%B5%E7%AC%94%E8%AE%B0-28.jpg" alt="笔记图片" loading="lazy"><br><img src="/images/%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_%E7%9F%A9%E9%98%B5%E7%AC%94%E8%AE%B0-29.jpg" alt="笔记图片" loading="lazy"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_%E7%9F%A9%E9%98%B5%E7%AC%9</summary>
+      
+    
+    
+    
+    <category term="笔记" scheme="https://tangentzx.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="线性代数" scheme="https://tangentzx.github.io/categories/%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+    
+    <category term="笔记" scheme="https://tangentzx.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="线性代数" scheme="https://tangentzx.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+    <category term="矩阵" scheme="https://tangentzx.github.io/tags/%E7%9F%A9%E9%98%B5/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World!</title>
