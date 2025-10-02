@@ -47,12 +47,19 @@
   </entry>
   
   <entry>
-    <title>Hello World!</title>
-    <link href="https://tangentzx.github.io/2025/09/30/hello-world/"/>
-    <id>https://tangentzx.github.io/2025/09/30/hello-world/</id>
+    <title>Plz read ME first!</title>
+    <link href="https://tangentzx.github.io/2025/09/30/Plz%20read%20ME%20first!/"/>
+    <id>https://tangentzx.github.io/2025/09/30/Plz%20read%20ME%20first!/</id>
     <published>2025-09-29T17:54:00.000Z</published>
-    <updated>2025-09-29T17:54:57.228Z</updated>
+    <updated>2025-10-02T13:21:24.392Z</updated>
     
+    <content type="html"><![CDATA[<h2 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h2><p>Blog页面的左上角按钮，点击后展开侧边栏，点击头像即可进入<a href="/about">About Me</a>页面</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;About-Me&quot;&gt;&lt;a href=&quot;#About-Me&quot; class=&quot;headerlink&quot; title=&quot;About Me&quot;&gt;&lt;/a&gt;About Me&lt;/h2&gt;&lt;p&gt;Blog页面的左上角按钮，点击后展开侧边栏，点击头像即可进入&lt;a href=&quot;/about&quot;</summary>
+      
     
     
     
