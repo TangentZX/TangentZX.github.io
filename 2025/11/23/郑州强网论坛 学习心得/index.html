@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="Tangent丶ZX"><meta name="copyright" content="Tangent丶ZX"><meta name="generator" content="Hexo 8.0.0"><meta name="theme" content="hexo-theme-yun"><title>郑州游记 | Tangent丶ZXのBlog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script defer src="https://fastly.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.css"><script defer src="https://fastly.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"></script><script type="module">import { renderKatex } from '/js/utils.js'
+document.addEventListener("DOMContentLoaded", () => {
+  renderKatex({
+    ...{},
+    ...undefined?.options,
+  });
+});</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"tangentzx.github.io","root":"/","title":"尽管我太平凡","version":"1.10.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="Tangent丶ZXのBlog" type="application/atom+xml"><meta name="description" content="写在前面：仅写学习心得~~（其实是游记）~~，并非响应报告的总结与归纳。  智绘漏洞，盾筑苍穹：漏洞智慧挖掘分论坛 TL;DR 在AI以其超强的潜力和能力夺得所有人眼球和期待的背景下，AI也有令人失望的地方、令人恐惧的地方。 LLM赋能的软件漏洞分析方法 报告人：赵磊 武汉大学教授 国家网络安全学院副院长 赵磊老师、张顾峰Maple提供的报告中指出，Transformer架构无法完成二进制漏洞发掘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="郑州游记">
+<meta property="og:url" content="https://tangentzx.github.io/2025/11/23/%E9%83%91%E5%B7%9E%E5%BC%BA%E7%BD%91%E8%AE%BA%E5%9D%9B%20%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:site_name" content="Tangent丶ZXのBlog">
+<meta property="og:description" content="写在前面：仅写学习心得~~（其实是游记）~~，并非响应报告的总结与归纳。  智绘漏洞，盾筑苍穹：漏洞智慧挖掘分论坛 TL;DR 在AI以其超强的潜力和能力夺得所有人眼球和期待的背景下，AI也有令人失望的地方、令人恐惧的地方。 LLM赋能的软件漏洞分析方法 报告人：赵磊 武汉大学教授 国家网络安全学院副院长 赵磊老师、张顾峰Maple提供的报告中指出，Transformer架构无法完成二进制漏洞发掘">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-29T03:10:02.207Z">
+<meta property="article:author" content="Tangent丶ZX">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="强网论坛">
+<meta name="twitter:card" content="summary"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="Tangent丶ZX"><img width="96" loading="lazy" src="/images/%E5%A4%B4%E5%83%8F.png" alt="Tangent丶ZX"></a><div class="site-author-name"><a href="/about/">Tangent丶ZX</a></div><span class="site-name">Tangent丶ZXのBlog</span><sub class="site-subtitle">Tzxy | CTF</sub><div class="site-description">遗憾尽常态</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">5</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">6</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">14</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:settings-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/TangentZX" title="GitHub" target="_blank" style="color:#181717"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/670950385?spm_id_from=333.1007.0.0" title="Bilibili" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">智绘漏洞，盾筑苍穹：漏洞智慧挖掘分论坛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LLM%E8%B5%8B%E8%83%BD%E7%9A%84%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">LLM赋能的软件漏洞分析方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%E5%B8%A6%E5%A4%96%E8%84%86%E5%BC%B1%E6%80%A7%E5%AE%89%E5%85%A8%E5%8F%8A%E9%98%B2%E6%8A%A4"><span class="toc-number">1.2.</span> <span class="toc-text">具身智能带外脆弱性安全及防护</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%E6%A6%82%E8%A6%81"><span class="toc-number">1.2.1.</span> <span class="toc-text">具身智能概要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%E8%B7%A8%E5%9F%9F%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text">具身智能跨域安全体系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%84%86%E5%BC%B1%E6%80%A7%E6%9C%BA%E7%90%86-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E8%84%86%E5%BC%B1%E6%80%A7%EF%BC%9F"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">脆弱性机理-为什么有脆弱性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%E5%B8%A6%E5%A4%96%E6%94%BB%E5%87%BB-%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E8%84%86%E5%BC%B1%E6%80%A7%EF%BC%9F"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">具身智能带外攻击-如何利用脆弱性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4-%E5%A6%82%E4%BD%95%E9%98%B2%E6%8A%A4%EF%BC%9F"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">具身智能安全防护-如何防护？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E6%94%BB%E5%87%BB%E5%AE%9E%E7%8E%B0%E2%80%9C%E8%87%AA%E5%8A%A8%E5%8C%96%E2%80%9D%EF%BC%9AAI%E6%97%B6%E4%BB%A3%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E7%9A%84%E8%BF%9B%E5%8C%96%E4%B8%8E%E6%8C%91%E6%88%98"><span class="toc-number">1.3.</span> <span class="toc-text">当攻击实现“自动化”：AI时代的软件供应链安全漏洞利用的进化与挑战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE%E5%AE%89%E5%85%A8%E6%8C%91%E6%88%98"><span class="toc-number">1.3.1.</span> <span class="toc-text">软件供应链安全挑战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI%E6%97%B6%E4%BB%A3%E4%B8%8B%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE%E5%AE%89%E5%85%A8%E7%9A%84%E9%98%B2%E6%8A%A4"><span class="toc-number">1.3.2.</span> <span class="toc-text">AI时代下软件供应链安全的防护</span></a></li></ol></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://tangentzx.github.io/2025/11/23/%E9%83%91%E5%B7%9E%E5%BC%BA%E7%BD%91%E8%AE%BA%E5%9D%9B%20%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Tangent丶ZX"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Tangent丶ZXのBlog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">郑州游记</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2025-11-23 00:00:00" itemprop="dateCreated datePublished" datetime="2025-11-23T00:00:00+08:00">2025-11-23</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2025-11-29 11:10:02" itemprop="dateModified" datetime="2025-11-29T11:10:02+08:00">2025-11-29</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">1.7k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">5m</span></span></span><div class="post-classify"><span class="post-tag"><a class="tag-item" href="/tags/CTF/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">CTF</span></a><a class="tag-item" href="/tags/%E5%BC%BA%E7%BD%91%E8%AE%BA%E5%9D%9B/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">强网论坛</span></a><a class="tag-item" href="/tags/AI/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">AI</span></a></span></div><div class="post-author"><span class="author-name">Tzxy</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><p>写在前面：仅写学习心得~~（其实是游记）~~，并非响应报告的总结与归纳。</p>
+<hr>
+<h1>智绘漏洞，盾筑苍穹：漏洞智慧挖掘分论坛</h1>
+<p><mark><strong>TL;DR</strong></mark><br>
+在AI以其超强的潜力和能力夺得所有人眼球和期待的背景下，AI也有令人失望的地方、令人恐惧的地方。</p>
+<h2 id="LLM赋能的软件漏洞分析方法">LLM赋能的软件漏洞分析方法</h2>
+<p>报告人：赵磊 武汉大学教授 国家网络安全学院副院长</p>
+<p>赵磊老师、张顾峰Maple提供的报告中指出，Transformer架构无法完成二进制漏洞发掘。我并不打Pwn，对二进制漏洞领域了解有限，结合自身打CTF的经历来看，AI在这方面的确不尽如人意。</p>
+<ul>
+<li>纸上谈兵的功夫了得，实际上落地的正确率并不高</li>
+<li>对CTF程序的分析精度远高于真实程序，实际数据获取困难</li>
+<li>LLM是基于概率的<strong>推测</strong>，与漏洞分析工作中的<strong>精细计算</strong>存在矛盾</li>
+<li><strong>夸夸其谈，不懂装懂；主次不分，钻牛角尖</strong></li>
+</ul>
+<p>如之前在WHUCTF2025新生赛中，我明显感受到了AI在CTF领域的不足。</p>
+<p><strong>Misc方向</strong>，AI的脑洞不足，对题目提示的参悟程度不够，对已知信息的利用不够，而且容易出现幻觉甚至降智的情况。对话一长、信息一多，LLM会自己忘记自己在干什么、要干什么的，联系上下文则更显难绷，很容易将题目的解法引向一条不归路而毫无发觉，一条路走到黑毫无尽头，基于其<strong>推测</strong>给出错误的、臆想出的flag。而用户指出其错误则甚至可能会被忽略。</p>
+<p><strong>Crypto方向</strong>，AI能够自主解决基础的密码学问题~~（GPT一把梭）~~，但是在稍微提高强度之后也会陷入死局，需要用户提示关键信息或解题要点。例如WHUCTF2025新生赛中的一道题AI分析半天可能毫无效果，点出“使用异或性质”之后可能将进度直接推进一大步。</p>
+<p><strong>Web方向</strong>，在简单的题目中，AI可以帮忙分析网页源代码、根据用户给出的题目信息提供一把梭的Payload，但是在遇到难题时，喂了提示但连思路很可能都没有，喂WP可能也无法复现出来。</p>
+<p>总之AI的表现远没有达到我上高中时的预想~~（虽然早已初见端倪）~~，尤其是在专业方向，AI表现远不如人意。</p>
+<h2 id="具身智能带外脆弱性安全及防护">具身智能带外脆弱性安全及防护</h2>
+<p>报告人：冀晓宇 浙江大学 电气工程学院教授</p>
+<p>~~说实话我觉得这一场报告是最有趣我最能听懂的：（～～</p>
+<h3 id="具身智能概要">具身智能概要</h3>
+<p>具身智能：基于物理实体进行感知和行动的人工智能系统。<br>
+特点：多模态感知交互、物理实体、进化学习等。<br>
+系统构成：“大脑”+“肉身”</p>
+<ul>
+<li>大脑：智能算法</li>
+<li>肉身：传感器、执行器、网络通信、电源等<br>
+<strong>具身智能安全</strong>：</li>
+</ul>
+<ol>
+<li>传统AI安全，如对抗样本攻击、数据毒化攻击、逆向工程攻击等</li>
+<li>大模型安全，提示注入攻击、偏见和不公平攻击等</li>
+<li><strong>特有</strong>：跨域安全、传感器安全、执行器安全、供电安全等<br>
+具身智能安全后果：模型不可靠、算法不可靠、执行不安全<br>
+<strong>具身智能跨域安全内涵</strong>：以“<strong>肉身</strong>”为攻击入口，协同“大脑”（<strong>算法</strong>）脆弱性产生的安全问题。<br>
+安全威胁：“人-机-物-时-空”交互安全、信息-物理-社会域问题</li>
+</ol>
+<h3 id="具身智能跨域安全体系">具身智能跨域安全体系</h3>
+<h4 id="脆弱性机理-为什么有脆弱性？">脆弱性机理-为什么有脆弱性？</h4>
+<p>带外脆弱性：一种可被<strong>物理域</strong>信号触发，引起<strong>信息域</strong>异常的安全缺陷</p>
+<ul>
+<li>本质：功能域的“信号-信息”真实映射和理想映射不一致</li>
+<li>是非功能设计的异常映射带来的缺陷</li>
+<li>本质成因：具身智能系统呈现复杂化、小型化、集成化、受限化的趋势</li>
+</ul>
+<h4 id="具身智能带外攻击-如何利用脆弱性？">具身智能带外攻击-如何利用脆弱性？</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>根源</th>
+<th>定义</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>信号超限效应</td>
+<td>器件设计功能区间定义缺陷</td>
+<td>信号大小规格等超出器件设计范围 -&gt; 数字域发生意外畸变和操作</td>
+<td>振动/惯导传感器声波超限 -&gt; 硬盘宕机/无人机坠落</td>
+</tr>
+<tr>
+<td>跨场传感效应</td>
+<td>器件非理想特性带来的缺陷</td>
+<td>传感器感应其他杂散物理量 -&gt; 后端智能信息系统产生异常结果和操作</td>
+<td>光/声/充电线信号 -&gt; 麦克风语音指令/硬盘窃听器/触摸屏触电感应</td>
+</tr>
+<tr>
+<td>远程旁路效应</td>
+<td>器件信号伴生辐射缺陷</td>
+<td>多物理场侧信道泄露 -&gt; 远程采集还原敏感信息</td>
+<td>摄像头电磁泄漏 -&gt; 隐私画面</td>
+</tr>
+<tr>
+<td>映射异常效应</td>
+<td>智能算法分析识别缺陷</td>
+<td>数字域智能分析识别错误 -&gt; 系统异常操作</td>
+<td>抖动模糊图像/电磁注入干扰 -&gt; 目标识别错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="具身智能安全防护-如何防护？">具身智能安全防护-如何防护？</h4>
+<ul>
+<li>带外脆弱性理论体系的构建</li>
+<li>带外脆弱性检测工具的设计落地</li>
+<li>带外脆弱性量化评估标准的建设</li>
+</ul>
+<h2 id="当攻击实现“自动化”：AI时代的软件供应链安全漏洞利用的进化与挑战">当攻击实现“自动化”：AI时代的软件供应链安全漏洞利用的进化与挑战</h2>
+<p>报告人：孟罡 公安部第三研究所 供应链安全能力河南分中心（筹）主任<br>
+网络威胁从“信息域”扩大到“信息域+物理域+认知域”<br>
+利用AI增强攻击的适应性和隐蔽性，提高写作效果和攻击鲁棒性，实现攻击方式的自我进化。<br>
+“传统”对“智能”的路径失效，转向“智能”对“智能”的技术路径</p>
+<h3 id="软件供应链安全挑战">软件供应链安全挑战</h3>
+<ol>
+<li>国际竞争的加剧————依赖性强，开源社区不完善，开源许可证认知不足</li>
+<li>软件复杂性、逻辑性、编码难度的不断提高</li>
+<li><strong>AI大模型自身存在大量安全风险</strong>（Xanthorox AI），如越狱攻击、隐藏后门、权限提升、攻击网络、疲劳退化、数据中毒、供应链与依赖风险等</li>
+</ol>
+<h3 id="AI时代下软件供应链安全的防护">AI时代下软件供应链安全的防护</h3>
+<ol>
+<li>加强安全检测、SBOM -&gt; 供应链透明化</li>
+<li>发展AI驱动的安全防御 -&gt; AI for Security &lt;=&gt; Security for AI</li>
+<li>利用好多种渠道的威胁情报</li>
+</ol>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">I'm so cute. Please give me money.</div><div id="qr" style="display:none;"><div style="display:inline-block"><a href="/images/reward/reward_Alipay.png"><img loading="lazy" src="/images/reward/reward_Alipay.png" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><span class="icon iconify" data-icon="ri:alipay-line"></span></span></div></div><div style="display:inline-block"><a href="/images/reward/reward_WeChat.png"><img loading="lazy" src="/images/reward/reward_WeChat.png" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><span class="icon iconify" data-icon="ri:wechat-pay-line"></span></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>Tzxy</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://tangentzx.github.io/2025/11/23/%E9%83%91%E5%B7%9E%E5%BC%BA%E7%BD%91%E8%AE%BA%E5%9D%9B%20%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" title="郑州游记">https://tangentzx.github.io/2025/11/23/%E9%83%91%E5%B7%9E%E5%BC%BA%E7%BD%91%E8%AE%BA%E5%9D%9B%20%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2025/11/28/ArchLinux%20%E6%8A%98%E8%85%BE%E5%BF%83%E5%BE%97/" rel="prev" title="ArchLinux 折腾心得"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">ArchLinux 折腾心得</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2025/10/24/Tzxy's%20WHUCTF2025%E6%96%B0%E7%94%9F%E8%B5%9BWP/" rel="next" title="Tzxy's WHUCTF2025新生赛WP"><span class="post-nav-text">Tzxy's WHUCTF2025新生赛WP</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2025 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> Tangent丶ZX</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v8.0.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.11</span></div><div class="live-time"><span>此blog已被赋予生命</span><span id="display_live_time"></span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2025-09-29T21:52:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = ` ${passDay} 天 ${passHour} 小时 ${passMinute} 分 ${passSecond} 秒`;
+}
+blog_live_time();
+</script></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script src="https://fastly.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script>const images = [...document.querySelectorAll('.markdown-body img')]
+mediumZoom(images)</script><style>.medium-zoom-image {
+  z-index: 99;
+}</style></body></html>
