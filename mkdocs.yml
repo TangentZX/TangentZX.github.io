@@ -1,0 +1,71 @@
+site_name: TangentZX's Blog
+site_url: https://tangentzx.github.io/
+repo_url: https://github.com/TangentZX/TangentZX.github.io
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+strict: true
+
+theme:
+  name: material
+  language: zh
+  custom_dir: overrides
+  logo: images/avatar.png
+  favicon: images/avatar.png
+  features:
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.top
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到浅色模式
+
+plugins:
+  - search
+  - awesome-nav
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.mark
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: false
+      guess_lang: true
+      linenums: false
+      pygments_lang_class: true
+      use_pygments: true
+
+extra_css:
+  - resources/css/extra.css
+  - resources/css/tittle.css
+  - resources/css/read-metrics.css
+  - resources/css/leftsidebar.css
+
+extra_javascript:
+  - resources/js/mathjax-config.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - resources/js/read-metrics.js
+  - resources/js/sidebar-resize.js
