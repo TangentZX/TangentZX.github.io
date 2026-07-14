@@ -87,6 +87,27 @@ SECTION_INDEXES = {
 """,
 }
 
+SECTION_NAVS = {
+    "docs/ctf/.nav.yml": """nav:
+  - index.md
+  - WHUCTF2026_WP.md
+  - Tzxy's WHUCTF2025新生赛WP.md
+""",
+    "docs/study/.nav.yml": """nav:
+  - index.md
+  - 数据结构实验复习.md
+  - 数据结构复习整理.md
+  - 程序设计(A)(C)作业.md
+  - 线性代数-矩阵笔记.md
+""",
+    "docs/sth/.nav.yml": """nav:
+  - index.md
+  - 流光协奏之梦.md
+  - ArchLinux 折腾心得.md
+  - 郑州强网论坛 学习心得.md
+""",
+}
+
 
 def migrate(source_blog: Path, target_blog: Path) -> None:
     for source_relative, target_relative in ARTICLE_MAP:
@@ -114,6 +135,9 @@ def migrate(source_blog: Path, target_blog: Path) -> None:
         shutil.copy2(source, target)
 
     for relative, content in SECTION_INDEXES.items():
+        (target_blog / relative).write_text(content, encoding="utf-8", newline="\n")
+
+    for relative, content in SECTION_NAVS.items():
         (target_blog / relative).write_text(content, encoding="utf-8", newline="\n")
 
 

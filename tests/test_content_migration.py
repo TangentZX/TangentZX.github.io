@@ -83,6 +83,32 @@ class MigratedRepositoryTests(unittest.TestCase):
             index = self.target_blog / target.parent / "index.md"
             self.assertIn(target.name, index.read_text(encoding="utf-8"))
 
+    def test_section_navigation_is_newest_first(self):
+        expected = {
+            "ctf": [
+                "index.md",
+                "WHUCTF2026_WP.md",
+                "Tzxy's WHUCTF2025新生赛WP.md",
+            ],
+            "study": [
+                "index.md",
+                "数据结构实验复习.md",
+                "数据结构复习整理.md",
+                "程序设计(A)(C)作业.md",
+                "线性代数-矩阵笔记.md",
+            ],
+            "sth": [
+                "index.md",
+                "流光协奏之梦.md",
+                "ArchLinux 折腾心得.md",
+                "郑州强网论坛 学习心得.md",
+            ],
+        }
+        for section, filenames in expected.items():
+            nav_path = self.target_blog / "docs" / section / ".nav.yml"
+            navigation = yaml.safe_load(nav_path.read_text(encoding="utf-8"))
+            self.assertEqual(navigation["nav"], filenames)
+
 
 if __name__ == "__main__":
     unittest.main()
