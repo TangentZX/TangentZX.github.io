@@ -86,6 +86,17 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn('(pointer: fine)', resize)
         self.assertIn('(min-width: 60em)', resize)
 
+    def test_deployment_template_is_safe_and_pinned(self):
+        workflow = (ROOT / ".github/workflows/deploy.yml").read_text(encoding="utf-8")
+        self.assertIn("branches: [main]", workflow)
+        self.assertIn('python-version: "3.13"', workflow)
+        self.assertIn("pip install -r requirements.txt", workflow)
+        self.assertIn("mkdocs gh-deploy --strict --force", workflow)
+
+    def test_internal_project_docs_are_excluded_from_site(self):
+        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        self.assertIn("superpowers/**", config["exclude_docs"])
+
 
 if __name__ == "__main__":
     unittest.main()
