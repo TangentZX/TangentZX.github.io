@@ -1,3 +1,4 @@
 # CTF
 
-CTF 学习记录与 Writeup 将在这里整理。
+- 2026-04-20 · [CTF辞のWHUCTF2026校赛WP](<WHUCTF2026_WP.md>)
+- 2025-10-24 · [Tzxy's WHUCTF2025新生赛WP](<Tzxy's WHUCTF2025新生赛WP.md>)
