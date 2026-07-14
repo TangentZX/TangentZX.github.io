@@ -1,0 +1,33 @@
+.md-sidebar--primary .md-nav__link {
+  border-radius: 6px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.md-sidebar--primary .md-nav__link:hover {
+  background: rgba(63, 81, 181, 0.08);
+  transform: translateX(4px);
+}
+
+.sidebar-resize-handle {
+  position: absolute;
+  top: 0;
+  right: -4px;
+  bottom: 0;
+  z-index: 3;
+  width: 8px;
+  cursor: ew-resize;
+}
+
+.md-sidebar--secondary .sidebar-resize-handle { right: auto; left: -4px; }
+
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    min-width: 240px;
+    max-width: 480px;
+  }
+}
+
+[data-md-color-scheme="slate"] .md-sidebar .md-nav__link:hover {
+  background: rgba(97, 175, 239, 0.08);
+}

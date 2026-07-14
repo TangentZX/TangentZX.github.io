@@ -63,6 +63,29 @@ class SiteContractTests(unittest.TestCase):
         self.assertGreater(avatar.stat().st_size, 1000)
         self.assertEqual(avatar.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
 
+    def test_declared_theme_resources_exist(self):
+        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        local_resources = [
+            path
+            for path in config["extra_css"] + config["extra_javascript"]
+            if not path.startswith("https://")
+        ]
+        for relative in local_resources:
+            self.assertTrue((ROOT / "docs" / relative).is_file(), relative)
+
+    def test_theme_extension_is_minimal(self):
+        template = (ROOT / "overrides" / "main.html").read_text(encoding="utf-8")
+        self.assertIn('{% extends "base.html" %}', template)
+        self.assertIn("{{ super() }}", template)
+
+    def test_progressive_enhancement_markers(self):
+        metrics = (ROOT / "docs/resources/js/read-metrics.js").read_text(encoding="utf-8")
+        resize = (ROOT / "docs/resources/js/sidebar-resize.js").read_text(encoding="utf-8")
+        self.assertIn("window.document$", metrics)
+        self.assertIn("WORDS_PER_MINUTE = 300", metrics)
+        self.assertIn('(pointer: fine)', resize)
+        self.assertIn('(min-width: 60em)', resize)
+
 
 if __name__ == "__main__":
     unittest.main()
