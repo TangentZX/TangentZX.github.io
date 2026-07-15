@@ -1,6 +1,6 @@
 ---
 title: Tzxy's WHUCTF2025新生赛WP
-author: Tzxy
+author: 1so
 date: 2025-10-24
 categories:
 - [CTF, WP, WHUCTF2025新生赛]

@@ -1,7 +1,8 @@
 nav:
   - 首页: index.md
-  - 校内: study
-  - CTF: ctf
-  - 随笔: sth
+  - 校内篇: study
+  - CTF篇: ctf
+  - 杂篇: sth
+  - 归档: archive
   - 友链: links
   - 关于: about

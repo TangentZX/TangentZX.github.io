@@ -66,6 +66,53 @@ class MigratedRepositoryTests(unittest.TestCase):
                 image_target = self.target_blog / "docs" / image_ref.lstrip("/")
                 self.assertTrue(image_target.is_file(), image_ref)
 
+    def test_article_authors_and_category_paths(self):
+        expected = {
+            "docs/study/程序设计(A)(C)作业.md": (
+                "Tangent丶ZX",
+                [["校内", "笔记", "程序设计(A)(C)"]],
+            ),
+            "docs/study/线性代数-矩阵笔记.md": (
+                "Tangent丶ZX",
+                [["校内", "笔记", "线性代数"]],
+            ),
+            "docs/study/数据结构复习整理.md": (
+                "Tangent丶ZX",
+                [["校内", "笔记", "数据结构"]],
+            ),
+            "docs/study/数据结构实验复习.md": (
+                "Tangent丶ZX",
+                [["校内", "笔记", "数据结构"]],
+            ),
+            "docs/ctf/Tzxy's WHUCTF2025新生赛WP.md": (
+                "1so",
+                [["CTF", "WP", "WHUCTF2025新生赛"]],
+            ),
+            "docs/ctf/WHUCTF2026_WP.md": (
+                "1so",
+                [["CTF", "WP", "WHUCTF2026校赛"]],
+            ),
+            "docs/sth/ArchLinux 折腾心得.md": (
+                "Tangent丶ZX",
+                [["随笔", "Linux"]],
+            ),
+            "docs/sth/流光协奏之梦.md": (
+                "Tangent丶ZX",
+                [["随笔", "流光协奏"]],
+            ),
+            "docs/sth/郑州强网论坛 学习心得.md": (
+                "Tangent丶ZX",
+                [["随笔", "游记"]],
+            ),
+        }
+
+        self.assertEqual(len(expected), 9)
+        for relative, (author, categories) in expected.items():
+            text = (self.target_blog / relative).read_text(encoding="utf-8")
+            metadata = yaml.safe_load(text.split("---", 2)[1])
+            self.assertEqual(metadata.get("author"), author, relative)
+            self.assertEqual(metadata.get("categories"), categories, relative)
+
     def test_every_legacy_image_is_copied_byte_for_byte(self):
         source_root = self.source_blog / "source" / "images"
         target_root = self.target_blog / "docs" / "images"
@@ -85,29 +132,47 @@ class MigratedRepositoryTests(unittest.TestCase):
 
     def test_section_navigation_is_newest_first(self):
         expected = {
-            "ctf": [
-                "index.md",
-                "WHUCTF2026_WP.md",
-                "Tzxy's WHUCTF2025新生赛WP.md",
-            ],
-            "study": [
-                "index.md",
-                "数据结构实验复习.md",
-                "数据结构复习整理.md",
-                "程序设计(A)(C)作业.md",
-                "线性代数-矩阵笔记.md",
-            ],
-            "sth": [
-                "index.md",
-                "流光协奏之梦.md",
-                "ArchLinux 折腾心得.md",
-                "郑州强网论坛 学习心得.md",
-            ],
+            "ctf": {
+                "nav": [
+                    "index.md",
+                    {
+                        "WP": [
+                            {"WHUCTF2025新生赛": ["Tzxy's WHUCTF2025新生赛WP.md"]},
+                            {"WHUCTF2026校赛": ["WHUCTF2026_WP.md"]},
+                        ]
+                    },
+                ]
+            },
+            "study": {
+                "nav": [
+                    "index.md",
+                    {
+                        "笔记": [
+                            {
+                                "数据结构": [
+                                    "数据结构实验复习.md",
+                                    "数据结构复习整理.md",
+                                ]
+                            },
+                            {"程序设计(A)(C)": ["程序设计(A)(C)作业.md"]},
+                            {"线性代数": ["线性代数-矩阵笔记.md"]},
+                        ]
+                    },
+                ]
+            },
+            "sth": {
+                "nav": [
+                    "index.md",
+                    {"Linux": ["ArchLinux 折腾心得.md"]},
+                    {"流光协奏": ["流光协奏之梦.md"]},
+                    {"游记": ["郑州强网论坛 学习心得.md"]},
+                ]
+            },
         }
-        for section, filenames in expected.items():
+        for section, expected_navigation in expected.items():
             nav_path = self.target_blog / "docs" / section / ".nav.yml"
             navigation = yaml.safe_load(nav_path.read_text(encoding="utf-8"))
-            self.assertEqual(navigation["nav"], filenames)
+            self.assertEqual(navigation, expected_navigation)
 
 
 if __name__ == "__main__":

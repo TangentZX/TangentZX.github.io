@@ -1,0 +1,134 @@
+/* Automatic category archive and tag cloud. */
+
+.taxonomy-index {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 1.2rem 0;
+}
+
+.taxonomy-index > p {
+  margin: 0;
+}
+
+.taxonomy-index > p > a {
+  display: block;
+  height: 100%;
+  padding: 1rem 1.1rem;
+  color: var(--md-typeset-color);
+  background: color-mix(in srgb, var(--md-primary-fg-color) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--md-primary-fg-color) 18%, transparent);
+  border-radius: 0.8rem;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.taxonomy-index > p > a:hover {
+  background: color-mix(in srgb, var(--md-primary-fg-color) 9%, transparent);
+  border-color: color-mix(in srgb, var(--md-primary-fg-color) 36%, transparent);
+  transform: translateY(-1px);
+}
+
+.taxonomy-categories {
+  margin-top: 1.2rem;
+}
+
+.taxonomy-categories h2,
+.taxonomy-categories h3,
+.taxonomy-categories h4,
+.taxonomy-categories h5,
+.taxonomy-categories h6 {
+  padding-left: 0.65rem;
+  border-left: 0.18rem solid #6171f5;
+}
+
+.taxonomy-categories h3,
+.taxonomy-categories h4,
+.taxonomy-categories h5,
+.taxonomy-categories h6 {
+  margin-left: 0.45rem;
+}
+
+.taxonomy-categories ul {
+  margin: 0.35rem 0 1rem 0.55rem;
+  padding: 0.25rem 0 0.25rem 1.15rem;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.55rem 0.75rem;
+  margin: 1.2rem 0 2rem;
+  padding: 1rem 1.1rem;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--md-primary-fg-color) 16%, transparent);
+  border-radius: 0.85rem;
+}
+
+.tag-cloud a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25em;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--md-primary-fg-color) 82%, var(--md-typeset-color));
+  text-decoration: none;
+  transition: color 150ms ease, transform 150ms ease;
+}
+
+.tag-cloud a:hover,
+.tag-cloud a:focus-visible {
+  color: var(--md-accent-fg-color);
+  transform: translateY(-1px);
+}
+
+.tag-cloud a:focus-visible,
+.taxonomy-index > p > a:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 3px;
+}
+
+.tag-cloud a > span {
+  font-size: 0.58em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.55;
+}
+
+.tag-cloud .tag-weight-1 { font-size: 0.72rem; }
+.tag-cloud .tag-weight-2 { font-size: 0.86rem; }
+.tag-cloud .tag-weight-3 { font-size: 1rem; }
+.tag-cloud .tag-weight-4 { font-size: 1.15rem; }
+.tag-cloud .tag-weight-5 { font-size: 1.3rem; }
+
+[id^="tag:"] {
+  scroll-margin-top: 4.8rem;
+}
+
+[data-md-color-scheme="slate"] .taxonomy-categories h2,
+[data-md-color-scheme="slate"] .taxonomy-categories h3,
+[data-md-color-scheme="slate"] .taxonomy-categories h4,
+[data-md-color-scheme="slate"] .taxonomy-categories h5,
+[data-md-color-scheme="slate"] .taxonomy-categories h6 {
+  border-left-color: #7dafe9;
+}
+
+[data-md-color-scheme="slate"] .tag-cloud a {
+  color: color-mix(in srgb, #7dafe9 86%, var(--md-typeset-color));
+}
+
+@media (max-width: 44rem) {
+  .taxonomy-index {
+    grid-template-columns: 1fr;
+  }
+
+  .tag-cloud {
+    gap: 0.5rem 0.65rem;
+    padding: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taxonomy-index > p > a,
+  .tag-cloud a {
+    transition: none;
+  }
+}

@@ -1,4 +1,7 @@
 nav:
-  - index.md
-  - WHUCTF2026_WP.md
-  - Tzxy's WHUCTF2025新生赛WP.md
+- index.md
+- WP:
+  - WHUCTF2025新生赛:
+    - Tzxy's WHUCTF2025新生赛WP.md
+  - WHUCTF2026校赛:
+    - WHUCTF2026_WP.md

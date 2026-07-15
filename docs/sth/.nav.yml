@@ -1,5 +1,8 @@
 nav:
-  - index.md
-  - 流光协奏之梦.md
+- index.md
+- Linux:
   - ArchLinux 折腾心得.md
+- 流光协奏:
+  - 流光协奏之梦.md
+- 游记:
   - 郑州强网论坛 学习心得.md

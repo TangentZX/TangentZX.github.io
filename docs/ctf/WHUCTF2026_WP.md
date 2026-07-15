@@ -1,6 +1,6 @@
 ---
 title: CTF辞のWHUCTF2026校赛WP
-author: Tang3nt
+author: 1so
 date: 2026-4-20
 categories: 
 - [CTF, WP, WHUCTF2026校赛]

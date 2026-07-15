@@ -1,9 +1,9 @@
 ---
 title: 程序设计(A)(C)作业
 date: 2025-10-09
-author: Tzxy
+author: Tangent丶ZX
 categories:
-- [程序设计(A)(C)]
+- [校内, 笔记, 程序设计(A)(C)]
 tags:
   - 作业
   - 程序设计

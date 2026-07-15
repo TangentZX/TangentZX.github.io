@@ -21,9 +21,12 @@ class SiteContractTests(unittest.TestCase):
     def test_mkdocs_identity_and_plugins(self):
         config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
         self.assertEqual(config["site_name"], "TangentZX's Blog")
+        self.assertNotIn("repo_url", config)
         self.assertEqual(config["theme"]["name"], "material")
         self.assertEqual(config["theme"]["custom_dir"], "overrides")
-        self.assertEqual(config["plugins"], ["search", "awesome-nav"])
+        self.assertEqual(config["plugins"], ["search", "material/tags", "awesome-nav"])
+        self.assertIn("hooks/taxonomy.py", config["hooks"])
+        self.assertIn("resources/css/taxonomy.css", config["extra_css"])
         self.assertTrue(config["strict"])
 
     def test_root_navigation_order(self):
@@ -32,9 +35,10 @@ class SiteContractTests(unittest.TestCase):
             nav["nav"],
             [
                 {"首页": "index.md"},
-                {"校内": "study"},
-                {"CTF": "ctf"},
-                {"随笔": "sth"},
+                {"校内篇": "study"},
+                {"CTF篇": "ctf"},
+                {"杂篇": "sth"},
+                {"归档": "archive"},
                 {"友链": "links"},
                 {"关于": "about"},
             ],
@@ -46,6 +50,9 @@ class SiteContractTests(unittest.TestCase):
             "docs/study/index.md",
             "docs/ctf/index.md",
             "docs/sth/index.md",
+            "docs/archive/index.md",
+            "docs/archive/categories.md",
+            "docs/archive/tags.md",
             "docs/links/index.md",
             "docs/about/index.md",
         ):
@@ -55,8 +62,23 @@ class SiteContractTests(unittest.TestCase):
         home = (ROOT / "docs" / "index.md").read_text(encoding="utf-8")
         self.assertIn("TangentZX's Blog", home)
         self.assertIn("暂无", home)
+        self.assertIn("学习、CTF 与一些随手记录", home)
         self.assertIn("images/avatar.png", home)
         self.assertIn("https://github.com/TangentZX", home)
+
+    def test_about_page_contains_migrated_profile(self):
+        about = (ROOT / "docs/about/index.md").read_text(encoding="utf-8")
+        for text in (
+            "Tangent丶ZX",
+            "I will cross my fingers hoping not to be sacrificed.",
+            "CTF ID",
+            "1so",
+            "武汉大学",
+            "武汉",
+            "tangentzx@hotmail.com",
+            "https://github.com/TangentZX",
+        ):
+            self.assertIn(text, about)
 
     def test_avatar_is_png(self):
         avatar = ROOT / "docs" / "images" / "avatar.png"
@@ -85,6 +107,57 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn("WORDS_PER_MINUTE = 300", metrics)
         self.assertIn('(pointer: fine)', resize)
         self.assertIn('(min-width: 60em)', resize)
+
+    def test_primary_sidebar_uses_material_active_rail(self):
+        css = (ROOT / "docs/resources/css/leftsidebar.css").read_text(encoding="utf-8")
+        self.assertIn("a.md-nav__link--active::before", css)
+        self.assertIn("#6171f5", css)
+        self.assertIn("#7dafe9", css)
+        self.assertIn("prefers-reduced-motion: reduce", css)
+
+    def test_secondary_toc_follows_the_active_heading(self):
+        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        self.assertIn("resources/css/article-content.css", config["extra_css"])
+        self.assertIn("resources/js/toc-follow.js", config["extra_javascript"])
+
+        css = (ROOT / "docs/resources/css/article-content.css").read_text(encoding="utf-8")
+        script = (ROOT / "docs/resources/js/toc-follow.js").read_text(encoding="utf-8")
+        self.assertIn(".md-sidebar--secondary .md-sidebar__scrollwrap", css)
+        self.assertIn("overflow-y: auto", css)
+        self.assertIn("MutationObserver", script)
+        self.assertIn(".md-nav__link--active", script)
+        self.assertIn('block: "nearest"', script)
+        self.assertIn("window.document$", script)
+        self.assertIn('window.addEventListener("scroll"', script)
+        self.assertIn("scrollwrap.scrollTo", script)
+
+    def test_selected_article_styles_are_global(self):
+        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        self.assertIn("resources/js/code-fold.js", config["extra_javascript"])
+        highlight = next(
+            item["pymdownx.highlight"]
+            for item in config["markdown_extensions"]
+            if isinstance(item, dict) and "pymdownx.highlight" in item
+        )
+        self.assertTrue(highlight["auto_title"])
+
+        css = (ROOT / "docs/resources/css/article-content.css").read_text(encoding="utf-8")
+        fold = (ROOT / "docs/resources/js/code-fold.js").read_text(encoding="utf-8")
+        self.assertIn(".md-typeset .highlight", css)
+        self.assertIn(".md-typeset :not(pre) > code", css)
+        self.assertIn(".md-typeset blockquote", css)
+        self.assertIn(".md-typeset__table table:not([class])", css)
+        self.assertIn("Maple Mono CN", css)
+        self.assertIn("--article-code-bg-light", css)
+        self.assertIn("border-left-color: #6171f5 !important", css)
+        self.assertIn("border-left-color: #7dafe9 !important", css)
+        self.assertIn("lineCount <= 32", fold)
+        self.assertIn("window.document$", fold)
+
+    def test_highlight_and_strikethrough_extensions_are_enabled(self):
+        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        self.assertIn("pymdownx.mark", config["markdown_extensions"])
+        self.assertIn("pymdownx.tilde", config["markdown_extensions"])
 
     def test_deployment_template_is_safe_and_pinned(self):
         workflow = (ROOT / ".github/workflows/deploy.yml").read_text(encoding="utf-8")

@@ -1,0 +1,126 @@
+.friend-links {
+  --friend-surface: rgba(255, 255, 255, 0.78);
+  --friend-border: rgba(57, 70, 84, 0.1);
+  --friend-text: #26323b;
+  --friend-muted: #73808a;
+  --friend-accent: #ef6f91;
+  --friend-accent-2: #4bb7ad;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.72rem;
+  margin: 1.4rem 0;
+}
+
+[data-md-color-scheme="slate"] .friend-links {
+  --friend-surface: rgba(36, 40, 47, 0.84);
+  --friend-border: rgba(227, 234, 241, 0.11);
+  --friend-text: #eef3f5;
+  --friend-muted: #a8b2ba;
+  --friend-accent: #ff8aaa;
+  --friend-accent-2: #72d8cd;
+}
+
+.friend-links .friend-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.35rem minmax(0, 1fr);
+  gap: 0.68rem;
+  min-height: 5.15rem;
+  padding: 0.78rem;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  background: color-mix(in srgb, var(--friend-surface) 68%, transparent);
+  color: var(--friend-text);
+  text-decoration: none;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.friend-links .friend-card:hover,
+.friend-links .friend-card:focus-visible {
+  z-index: 1;
+  border-color: color-mix(in srgb, var(--friend-accent) 40%, var(--friend-border));
+  background: var(--friend-surface);
+  box-shadow: 0 12px 28px rgba(50, 65, 75, 0.11);
+  color: var(--friend-text);
+  transform: translateY(-3px);
+}
+
+[data-md-color-scheme="slate"] .friend-links .friend-card:hover,
+[data-md-color-scheme="slate"] .friend-links .friend-card:focus-visible {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+}
+
+.friend-links .friend-card:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--friend-accent-2) 62%, transparent);
+  outline-offset: 3px;
+}
+
+.friend-links .friend-card img {
+  display: block;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--friend-accent) 10%, transparent);
+  object-fit: cover;
+  filter: saturate(0.84);
+}
+
+.friend-links .friend-copy {
+  min-width: 0;
+}
+
+.friend-links .friend-copy strong,
+.friend-links .friend-copy small,
+.friend-links .friend-desc {
+  display: block;
+}
+
+.friend-links .friend-copy strong {
+  overflow-wrap: anywhere;
+  color: var(--friend-text);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.friend-links .friend-copy small {
+  margin-top: 0.14rem;
+  color: var(--friend-accent-2);
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.friend-links .friend-desc {
+  display: -webkit-box;
+  margin-top: 0.55rem;
+  overflow: hidden;
+  color: var(--friend-muted);
+  font-size: 0.7rem;
+  line-height: 1.55;
+  opacity: 0.68;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  transition: opacity 0.2s ease;
+}
+
+.friend-links .friend-card:hover .friend-desc,
+.friend-links .friend-card:focus-visible .friend-desc {
+  opacity: 1;
+}
+
+@media screen and (max-width: 44rem) {
+  .friend-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .friend-links .friend-card {
+    transition: none;
+  }
+
+  .friend-links .friend-card:hover,
+  .friend-links .friend-card:focus-visible {
+    transform: none;
+  }
+}

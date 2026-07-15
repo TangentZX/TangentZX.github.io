@@ -1,9 +1,9 @@
 ---
 title: ArchLinux 折腾心得
 date: 2025-11-28
-author: Tzxy
+author: Tangent丶ZX
 categories:
-- [随便写写, Linux]
+- [随笔, Linux]
 tags:
 - ArchLinux
 - Hyprland

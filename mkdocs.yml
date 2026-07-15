@@ -1,6 +1,5 @@
 site_name: TangentZX's Blog
 site_url: https://tangentzx.github.io/
-repo_url: https://github.com/TangentZX/TangentZX.github.io
 docs_dir: docs
 site_dir: site
 use_directory_urls: true
@@ -39,7 +38,11 @@ theme:
 
 plugins:
   - search
+  - material/tags
   - awesome-nav
+
+hooks:
+  - hooks/taxonomy.py
 
 markdown_extensions:
   - admonition
@@ -49,12 +52,13 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight:
       anchor_linenums: true
-      auto_title: false
+      auto_title: true
       guess_lang: true
       linenums: false
       pygments_lang_class: true
@@ -65,9 +69,14 @@ extra_css:
   - resources/css/tittle.css
   - resources/css/read-metrics.css
   - resources/css/leftsidebar.css
+  - resources/css/article-content.css
+  - resources/css/friend-links.css
+  - resources/css/taxonomy.css
 
 extra_javascript:
   - resources/js/mathjax-config.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - resources/js/read-metrics.js
   - resources/js/sidebar-resize.js
+  - resources/js/toc-follow.js
+  - resources/js/code-fold.js
