@@ -34,6 +34,10 @@
 
 栏目左侧导航继续按文章日期排列，不额外复制成嵌套目录；分类层级集中显示在篇章首页和全站分类页，避免同一层级维护两套交互。
 
+## 作者元数据
+
+所有文章的 front matter 都显式保留 `author`。校内篇与杂篇文章统一为 `Tangent丶ZX`；两篇 CTF WP 使用比赛 ID `1so`。作者字段只作为文章元数据，本次不新增正文内的作者展示组件。
+
 ## 自动生成方式
 
 新增 MkDocs 本地 hook `hooks/taxonomy.py`，在每次 `mkdocs serve` 或 `mkdocs build` 的配置阶段执行：
