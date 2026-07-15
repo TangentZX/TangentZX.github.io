@@ -1,0 +1,73 @@
+# 自动分类、标签与归档设计
+
+## 目标
+
+让迁移文章开头已有的 `date`、`categories` 和 `tags` 元数据真正参与站点生成。作者新增文章时只需要把 Markdown 放进 `docs/study`、`docs/ctf` 或 `docs/sth` 并填写 front matter，不再手工维护栏目首页、文章顺序、分类页或标签页。
+
+## 导航结构
+
+根导航在“随笔”和“友链”之间新增“归档”。归档目录包含：
+
+- `index.md`：归档入口，说明分类和标签的用途。
+- `categories.md`：按 `categories` 的层级路径生成文章列表。
+- `tags.md`：顶部显示按引用次数缩放的标签词云，下方使用 Material 原生标签 listing 展示每个标签对应的文章。
+
+现有“校内 / CTF / 随笔”仍是主要内容入口，不被归档页替代。
+
+## 自动生成方式
+
+新增 MkDocs 本地 hook `hooks/taxonomy.py`，在每次 `mkdocs serve` 或 `mkdocs build` 的配置阶段执行：
+
+1. 扫描 `docs/study`、`docs/ctf`、`docs/sth` 下除 `index.md` 外的 Markdown。
+2. 读取并规范化 `title`、`date`、`categories` 和 `tags`。
+3. 按日期从新到旧更新三个栏目 `.nav.yml`。
+4. 只替换栏目 `index.md` 中生成标记之间的文章列表，标记外的作者自定义文字保持不变。
+5. 生成 `docs/archive/categories.md` 的层级分类与文章链接。
+6. 生成 `docs/archive/tags.md` 的词云数据，并保留 `<!-- material/tags -->` 指令供 Material 插件生成标签 listing。
+
+生成器采用“内容不变则不写文件”，避免开发服务器因自身写入反复重载。
+
+## 元数据兼容
+
+- `date` 接受 `YYYY-M-D`、`YYYY-MM-DD` 和带时间格式，展示时统一为 `YYYY-MM-DD`。
+- `categories` 接受字符串、字符串列表和当前 Hexo 风格的嵌套路径列表，例如 `[[CTF, WP, 比赛名]]`。
+- `tags` 接受字符串或字符串列表。
+- 缺少 `title` 时使用文件名；缺少日期时排在有日期文章之后。
+- 缺少分类或标签不会阻止构建，只是不进入相应索引。
+
+## 标签实现
+
+在 `mkdocs.yml` 启用本地已安装的 `material/tags` 插件，不使用已废弃的 `tags_file`。词云链接使用与插件相同的 slug 规则指向 listing 的标签锚点；字体大小划分为五档，由标签在文章中的引用次数计算。
+
+## 样式
+
+新增 `docs/resources/css/taxonomy.css`：
+
+- 分类页使用轻量层级卡片和文章日期，不复制友链或文章内容卡片的视觉。
+- 词云为可换行的标签链接，频率越高字号越大，但设置上下限，避免单个标签压倒页面。
+- 支持深浅主题、键盘焦点、窄屏布局和 `prefers-reduced-motion`。
+
+## 写作流程
+
+新增文章只需：
+
+1. 在对应栏目目录创建 `.md`。
+2. 填写 `title`、`date`、`categories`、`tags`。
+3. 正常运行或构建博客。
+
+栏目列表、导航顺序、分类索引和标签词云会自动更新。
+
+## 验证
+
+- 9 篇现有文章全部被扫描。
+- 生成结果包含 8 条唯一分类路径、18 个唯一标签和 24 次标签引用。
+- 三个栏目首页与导航均按日期从新到旧。
+- Material 标签 listing 能生成标签锚点和文章链接。
+- 连续运行生成器两次，第二次不修改任何生成文件。
+- 全部单元测试及 `mkdocs build --strict` 成功。
+
+## 非目标
+
+- 不迁移旧 Hexo 的空 `categories/index.md`、`tags/index.md` 页面本身。
+- 不增加搜索、筛选、随机排序或在线链接检查。
+- 不把 `categories` 强行转换成 `tags`，两种语义保持独立。
