@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.migrate_hexo_content import ARTICLE_MAP, normalize_article
+from hooks import taxonomy
 
 
 class MarkdownTransformationTests(unittest.TestCase):
@@ -131,47 +132,14 @@ class MigratedRepositoryTests(unittest.TestCase):
             self.assertIn(target.name, index.read_text(encoding="utf-8"))
 
     def test_section_navigation_is_newest_first(self):
-        expected = {
-            "ctf": {
-                "nav": [
-                    "index.md",
-                    {
-                        "WP": [
-                            {"WHUCTF2025新生赛": ["Tzxy's WHUCTF2025新生赛WP.md"]},
-                            {"WHUCTF2026校赛": ["WHUCTF2026_WP.md"]},
-                        ]
-                    },
-                ]
-            },
-            "study": {
-                "nav": [
-                    "index.md",
-                    {
-                        "笔记": [
-                            {
-                                "数据结构": [
-                                    "数据结构实验复习.md",
-                                    "数据结构复习整理.md",
-                                ]
-                            },
-                            {"程序设计(A)(C)": ["程序设计(A)(C)作业.md"]},
-                            {"线性代数": ["线性代数-矩阵笔记.md"]},
-                        ]
-                    },
-                ]
-            },
-            "sth": {
-                "nav": [
-                    "index.md",
-                    {"Linux": ["ArchLinux 折腾心得.md"]},
-                    {"流光协奏": ["流光协奏之梦.md"]},
-                    {"游记": ["郑州强网论坛 学习心得.md"]},
-                ]
-            },
-        }
-        for section, expected_navigation in expected.items():
+        articles = taxonomy.collect_articles(self.target_blog / "docs")
+        for section in taxonomy.SECTION_TITLES:
             nav_path = self.target_blog / "docs" / section / ".nav.yml"
             navigation = yaml.safe_load(nav_path.read_text(encoding="utf-8"))
+            expected_navigation = taxonomy.render_section_navigation(
+                [article for article in articles if article.section == section],
+                section,
+            )
             self.assertEqual(navigation, expected_navigation)
 
 

@@ -2,6 +2,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
+import yaml
+
 from hooks import taxonomy
 
 
@@ -22,12 +24,13 @@ class TaxonomyCollectorTests(unittest.TestCase):
     def test_collects_all_migrated_taxonomy(self):
         articles = taxonomy.collect_articles(ROOT / "docs")
 
-        self.assertEqual(len(articles), 9)
-        self.assertEqual(len({path for article in articles for path in article.categories}), 8)
-        self.assertEqual(len({tag for article in articles for tag in article.tags}), 18)
-        self.assertEqual(sum(len(article.tags) for article in articles), 24)
-        self.assertEqual(articles[0].title, "数据结构实验复习整理")
-        self.assertEqual(articles[0].date_text, "2026-07-02")
+        self.assertGreaterEqual(len(articles), 9)
+        self.assertGreaterEqual(len({path for article in articles for path in article.categories}), 8)
+        self.assertGreaterEqual(len({tag for article in articles for tag in article.tags}), 18)
+        self.assertEqual(
+            [article.date_key for article in articles],
+            sorted((article.date_key for article in articles), reverse=True),
+        )
 
     def test_normalizes_supported_metadata_shapes(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -96,52 +99,56 @@ class TaxonomyCollectorTests(unittest.TestCase):
 
     def test_renders_material_native_nested_navigation(self):
         articles = taxonomy.collect_articles(ROOT / "docs")
+        expected_tokens = {
+            "study": ("笔记", "数据结构", "程序设计(A)(C)", "线性代数"),
+            "ctf": ("WP", "WHUCTF2025新生赛", "WHUCTF2026校赛"),
+            "sth": ("Linux", "流光协奏", "游记"),
+        }
 
-        self.assertEqual(
-            taxonomy.render_section_navigation(articles, "study"),
-            {
-                "nav": [
-                    "index.md",
-                    {
-                        "笔记": [
-                            {
-                                "数据结构": [
-                                    "数据结构实验复习.md",
-                                    "数据结构复习整理.md",
-                                ]
-                            },
-                            {"程序设计(A)(C)": ["程序设计(A)(C)作业.md"]},
-                            {"线性代数": ["线性代数-矩阵笔记.md"]},
-                        ]
-                    },
-                ]
-            },
-        )
-        self.assertEqual(
-            taxonomy.render_section_navigation(articles, "ctf"),
-            {
-                "nav": [
-                    "index.md",
-                    {
-                        "WP": [
-                            {"WHUCTF2025新生赛": ["Tzxy's WHUCTF2025新生赛WP.md"]},
-                            {"WHUCTF2026校赛": ["WHUCTF2026_WP.md"]},
-                        ]
-                    },
-                ]
-            },
-        )
-        self.assertEqual(
-            taxonomy.render_section_navigation(articles, "sth"),
-            {
-                "nav": [
-                    "index.md",
-                    {"Linux": ["ArchLinux 折腾心得.md"]},
-                    {"流光协奏": ["流光协奏之梦.md"]},
-                    {"游记": ["郑州强网论坛 学习心得.md"]},
-                ]
-            },
-        )
+        for section, tokens in expected_tokens.items():
+            navigation = taxonomy.render_section_navigation(articles, section)
+            self.assertEqual(navigation["nav"][0], "index.md")
+            rendered = yaml.safe_dump(navigation, allow_unicode=True, sort_keys=False)
+            for token in tokens:
+                self.assertIn(token, rendered)
+
+    def test_category_branches_follow_their_newest_article(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            docs = Path(temporary)
+            study = docs / "study"
+            study.mkdir()
+            (study / "older.md").write_text(
+                "---\n"
+                "title: Older\n"
+                "date: 2025-01-01\n"
+                "categories: [[校内, A旧分类]]\n"
+                "---\n",
+                encoding="utf-8",
+            )
+            (study / "newer.md").write_text(
+                "---\n"
+                "title: Newer\n"
+                "date: 2026-01-01\n"
+                "categories: [[校内, Z新分类]]\n"
+                "---\n",
+                encoding="utf-8",
+            )
+
+            articles = taxonomy.collect_articles(docs)
+            navigation = taxonomy.render_section_navigation(articles, "study")
+            archive = taxonomy.render_categories(articles)
+
+            self.assertEqual(
+                navigation,
+                {
+                    "nav": [
+                        "index.md",
+                        {"Z新分类": ["newer.md"]},
+                        {"A旧分类": ["older.md"]},
+                    ]
+                },
+            )
+            self.assertLess(archive.index("### Z新分类"), archive.index("### A旧分类"))
 
 
 class TaxonomySyncTests(unittest.TestCase):

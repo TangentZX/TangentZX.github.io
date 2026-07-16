@@ -10,25 +10,16 @@ title: 分类
 
 <div class="taxonomy-categories" markdown>
 
-## CTF
-
-
-### WP
-
-
-#### WHUCTF2025新生赛
-
-- 2025-10-24 · [Tzxy's WHUCTF2025新生赛WP](<../ctf/Tzxy's WHUCTF2025新生赛WP.md>)
-
-#### WHUCTF2026校赛
-
-- 2026-04-20 · [CTF辞のWHUCTF2026校赛WP](<../ctf/WHUCTF2026_WP.md>)
-
 ## 校内
 
 
 ### 笔记
 
+
+#### 高等数学
+
+- 2026-07-16 · [高等数学A(上)笔记](<../study/高等数学A(上)笔记.md>)
+- 2026-07-16 · [高等数学A(下)笔记](<../study/高等数学A(下)笔记.md>)
 
 #### 数据结构
 
@@ -43,16 +34,30 @@ title: 分类
 
 - 2025-10-02 · [线性代数_矩阵笔记](<../study/线性代数-矩阵笔记.md>)
 
+## CTF
+
+
+### WP
+
+
+#### WHUCTF2026校赛
+
+- 2026-04-20 · [CTF辞のWHUCTF2026校赛WP](<../ctf/WHUCTF2026_WP.md>)
+
+#### WHUCTF2025新生赛
+
+- 2025-10-24 · [Tzxy's WHUCTF2025新生赛WP](<../ctf/Tzxy's WHUCTF2025新生赛WP.md>)
+
 ## 随笔
 
-
-### Linux
-
-- 2025-11-28 · [ArchLinux 折腾心得](<../sth/ArchLinux 折腾心得.md>)
 
 ### 流光协奏
 
 - 2025-12-27 · [流光协奏之梦](<../sth/流光协奏之梦.md>)
+
+### Linux
+
+- 2025-11-28 · [ArchLinux 折腾心得](<../sth/ArchLinux 折腾心得.md>)
 
 ### 游记
 

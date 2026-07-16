@@ -10,13 +10,13 @@ hide:
 <!-- taxonomy:articles:start -->
 <div class="taxonomy-categories" markdown>
 
-## Linux
-
-- 2025-11-28 · [ArchLinux 折腾心得](<ArchLinux 折腾心得.md>)
-
 ## 流光协奏
 
 - 2025-12-27 · [流光协奏之梦](<流光协奏之梦.md>)
+
+## Linux
+
+- 2025-11-28 · [ArchLinux 折腾心得](<ArchLinux 折腾心得.md>)
 
 ## 游记
 

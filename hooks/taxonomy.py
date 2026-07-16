@@ -141,7 +141,7 @@ def _render_category_tree(tree: dict, base_dir: Path) -> str:
         lines.append(render_article_list(tree["__articles__"], base_dir))
 
     def visit(node: dict, depth: int) -> None:
-        for name in sorted(key for key in node if key != "__articles__"):
+        for name in (key for key in node if key != "__articles__"):
             child = node[name]
             lines.extend(("", f"{'#' * min(depth + 2, 6)} {name}", ""))
             if child.get("__articles__"):
@@ -177,7 +177,7 @@ def render_section_categories(articles: list[Article], section: str) -> str:
 
 def _navigation_items(node: dict) -> list:
     items = [article.path.name for article in node.get("__articles__", [])]
-    for name in sorted(key for key in node if key != "__articles__"):
+    for name in (key for key in node if key != "__articles__"):
         items.append({name: _navigation_items(node[name])})
     return items
 
