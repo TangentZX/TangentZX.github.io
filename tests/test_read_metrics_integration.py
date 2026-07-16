@@ -3,6 +3,15 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
+INDEX_PAGES = (
+    "docs/index.md",
+    "docs/study/index.md",
+    "docs/ctf/index.md",
+    "docs/sth/index.md",
+    "docs/archive/index.md",
+    "docs/links/index.md",
+    "docs/about/index.md",
+)
 
 
 class ReadMetricsIntegrationTests(unittest.TestCase):
@@ -12,9 +21,13 @@ class ReadMetricsIntegrationTests(unittest.TestCase):
     def test_hook_is_registered(self):
         self.assertIn("- hooks/read_metrics.py", self.read("mkdocs.yml"))
 
-    def test_homepage_disables_metrics(self):
-        front_matter = self.read("docs/index.md").split("---", 2)[1]
-        self.assertIn("- read-metrics", front_matter)
+    def test_section_index_pages_disable_metrics(self):
+        for relative_path in INDEX_PAGES:
+            with self.subTest(path=relative_path):
+                source = self.read(relative_path)
+                self.assertTrue(source.startswith("---\n"))
+                front_matter = source.split("---", 2)[1]
+                self.assertIn("- read-metrics", front_matter)
 
     def test_script_honors_hidden_marker(self):
         script = self.read("docs/resources/js/read-metrics.js")

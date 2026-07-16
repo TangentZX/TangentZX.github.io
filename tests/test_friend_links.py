@@ -3,6 +3,8 @@ import unittest
 
 import yaml
 
+from tests.mkdocs_config import load_mkdocs_config
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -30,7 +32,7 @@ class FriendLinksTests(unittest.TestCase):
         self.assertEqual(page.count('target="_blank" rel="noopener noreferrer"'), 10)
 
     def test_final_styles_are_registered_and_preview_is_removed(self):
-        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        config = load_mkdocs_config(ROOT)
         self.assertIn("resources/css/friend-links.css", config["extra_css"])
         css = (ROOT / "docs/resources/css/friend-links.css").read_text(encoding="utf-8")
         self.assertIn(".friend-links", css)

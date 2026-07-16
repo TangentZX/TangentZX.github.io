@@ -1,10 +1,12 @@
 ---
 title: 归档
+hide:
+  - read-metrics
 ---
 
 # 归档
 
-这里会根据每篇文章开头的 `categories` 和 `tags` 自动整理；新增文章后无需手动维护列表。
+这里会根据每篇文章开头的 `categories` 和 `tags` 自动整理。
 
 <div class="taxonomy-index" markdown>
 

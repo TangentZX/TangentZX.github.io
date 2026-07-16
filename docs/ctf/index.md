@@ -1,3 +1,8 @@
+---
+hide:
+  - read-metrics
+---
+
 # CTF篇
 
 比赛记录、题解与复盘。

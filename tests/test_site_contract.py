@@ -3,6 +3,8 @@ import unittest
 
 import yaml
 
+from tests.mkdocs_config import load_mkdocs_config
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -19,7 +21,7 @@ class SiteContractTests(unittest.TestCase):
         )
 
     def test_mkdocs_identity_and_plugins(self):
-        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        config = load_mkdocs_config(ROOT)
         self.assertEqual(config["site_name"], "TangentZX's Blog")
         self.assertNotIn("repo_url", config)
         self.assertEqual(config["theme"]["name"], "material")
@@ -61,9 +63,10 @@ class SiteContractTests(unittest.TestCase):
     def test_homepage_identity(self):
         home = (ROOT / "docs" / "index.md").read_text(encoding="utf-8")
         self.assertIn("TangentZX's Blog", home)
-        self.assertIn("暂无", home)
-        self.assertIn("学习、CTF 与一些随手记录", home)
-        self.assertIn("images/avatar.png", home)
+        self.assertIn("校内学习、CTF", home)
+        self.assertIn("[关于](/about)", home)
+        self.assertIn("images/洛天依壁纸.png", home)
+        self.assertIn("images/洛天依壁纸_夜.png", home)
         self.assertIn("https://github.com/TangentZX", home)
 
     def test_about_page_contains_migrated_profile(self):
@@ -86,7 +89,7 @@ class SiteContractTests(unittest.TestCase):
         self.assertEqual(avatar.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
 
     def test_declared_theme_resources_exist(self):
-        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        config = load_mkdocs_config(ROOT)
         local_resources = [
             path
             for path in config["extra_css"] + config["extra_javascript"]
@@ -116,7 +119,7 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn("prefers-reduced-motion: reduce", css)
 
     def test_secondary_toc_follows_the_active_heading(self):
-        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        config = load_mkdocs_config(ROOT)
         self.assertIn("resources/css/article-content.css", config["extra_css"])
         self.assertIn("resources/js/toc-follow.js", config["extra_javascript"])
 
@@ -132,7 +135,7 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn("scrollwrap.scrollTo", script)
 
     def test_selected_article_styles_are_global(self):
-        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        config = load_mkdocs_config(ROOT)
         self.assertIn("resources/js/code-fold.js", config["extra_javascript"])
         highlight = next(
             item["pymdownx.highlight"]
@@ -155,7 +158,7 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn("window.document$", fold)
 
     def test_highlight_and_strikethrough_extensions_are_enabled(self):
-        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        config = load_mkdocs_config(ROOT)
         self.assertIn("pymdownx.mark", config["markdown_extensions"])
         self.assertIn("pymdownx.tilde", config["markdown_extensions"])
 
@@ -167,7 +170,7 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn("mkdocs gh-deploy --strict --force", workflow)
 
     def test_internal_project_docs_are_excluded_from_site(self):
-        config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        config = load_mkdocs_config(ROOT)
         self.assertIn("superpowers/**", config["exclude_docs"])
 
 

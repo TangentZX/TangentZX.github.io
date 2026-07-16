@@ -44,7 +44,6 @@ plugins:
 hooks:
   - hooks/taxonomy.py
   - hooks/read_metrics.py
-  - hooks/read_metrics.py
 
 markdown_extensions:
   - admonition
@@ -56,6 +55,9 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight:
@@ -74,6 +76,7 @@ extra_css:
   - resources/css/article-content.css
   - resources/css/friend-links.css
   - resources/css/taxonomy.css
+  - resources/css/about.css
 
 extra_javascript:
   - resources/js/mathjax-config.js

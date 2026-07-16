@@ -24,8 +24,8 @@ class BuiltSiteTests(unittest.TestCase):
     def test_homepage_contains_identity_and_assets(self):
         html = (SITE / "index.html").read_text(encoding="utf-8")
         self.assertIn("TangentZX's Blog", html)
-        self.assertIn("暂无", html)
-        self.assertIn("images/avatar.png", html)
+        self.assertIn("images/洛天依壁纸.png", html)
+        self.assertIn("images/洛天依壁纸_夜.png", html)
         self.assertIn("resources/css/extra.css", html)
         self.assertIn("resources/js/read-metrics.js", html)
         self.assertNotIn('class="md-source"', html)
