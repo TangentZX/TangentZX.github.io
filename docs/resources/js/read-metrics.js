@@ -5,6 +5,7 @@
     const article = document.querySelector("article.md-content__inner");
     if (!article) return;
     article.querySelector(".reading-metrics")?.remove();
+    if (article.querySelector('[data-read-metrics="hidden"]')) return;
 
     const text = article.innerText || "";
     const cjk = (text.match(/[\u4e00-\u9fff]/g) || []).length;

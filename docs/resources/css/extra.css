@@ -35,14 +35,19 @@ body {
 .profile-card h1 { margin: 0.2rem 0 0; }
 .profile-description { margin: 0; color: var(--md-default-fg-color--light); }
 
-.profile-avatar {
-  width: min(12rem, 52vw);
-  aspect-ratio: 1;
-  border: 0.22rem solid rgba(63, 81, 181, 0.22);
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 14px 35px rgba(63, 81, 181, 0.22);
+.profile-wallpaper {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 14px 35px rgba(63, 81, 181, 0.18);
 }
+
+.profile-wallpaper--dark { display: none; }
+
+[data-md-color-scheme="slate"] .profile-wallpaper--light { display: none; }
+[data-md-color-scheme="slate"] .profile-wallpaper--dark { display: block; }
 
 [data-md-color-scheme="slate"] {
   --odp-bg: #282c34;
@@ -56,8 +61,7 @@ body {
   --md-default-fg-color: var(--odp-fg);
 }
 
-[data-md-color-scheme="slate"] .profile-avatar {
-  border-color: rgba(97, 175, 239, 0.35);
+[data-md-color-scheme="slate"] .profile-wallpaper {
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
 }
 

@@ -43,6 +43,8 @@ plugins:
 
 hooks:
   - hooks/taxonomy.py
+  - hooks/read_metrics.py
+  - hooks/read_metrics.py
 
 markdown_extensions:
   - admonition
