@@ -5,9 +5,11 @@ hide:
 
 # 关于
 
-## Tangent丶ZX
+## Tangent丶ZX | 亭舟
 
-> I will cross my fingers hoping not to be sacrificed.
+> 我怎会不知你挚爱纯蓝。
+
+锦依卫、中文 Vocaloid 粉。
 
 - **CTF ID：** 1so
 - **昵称：** 亭舟
