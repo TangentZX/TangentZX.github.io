@@ -13,7 +13,4 @@ hide:
   <img class="profile-wallpaper profile-wallpaper--light" src="images/洛天依壁纸.png" alt="洛天依壁纸">
   <img class="profile-wallpaper profile-wallpaper--dark" src="images/洛天依壁纸_夜.png" alt="洛天依夜间壁纸">
 
-
-
-  [GitHub](https://github.com/TangentZX){ .md-button .md-button--primary }
 </div>
