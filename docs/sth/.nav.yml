@@ -1,8 +1,10 @@
 nav:
 - index.md
+- 游记:
+  - 郑州强网论坛 学习心得.md
+  - 鹰角FES:
+    - 鹰角FES2026游记.md
 - 流光协奏:
   - 流光协奏之梦.md
 - Linux:
   - ArchLinux 折腾心得.md
-- 游记:
-  - 郑州强网论坛 学习心得.md
