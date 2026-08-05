@@ -62,7 +62,7 @@ class BuiltSiteTests(unittest.TestCase):
         tags = (SITE / "archive/tags/index.html").read_text(encoding="utf-8")
 
         self.assertIn("taxonomy-categories", categories)
-        for label in ("校内", "笔记", "数据结构", "CTF", "WP", "随笔"):
+        for label in ("校内", "笔记", "数据结构", "CTF", "WP", "杂篇"):
             self.assertIn(label, categories)
 
         self.assertIn("tag-cloud", tags)

@@ -39,7 +39,7 @@ D:\Project\new-blog
 | --- | --- | --- |
 | 校内篇 | `docs/study/` | `校内` |
 | CTF篇 | `docs/ctf/` | `CTF` |
-| 杂篇 | `docs/sth/` | `随笔` |
+| 杂篇 | `docs/sth/` | `杂篇` |
 
 ### 1.3 自动生成的内容
 
@@ -182,7 +182,7 @@ title: 一篇随笔
 author: Tangent丶ZX
 date: 2026-07-16
 categories:
-  - [随笔, 游记]
+  - [杂篇, 游记]
 tags:
   - 随笔
   - 游记
@@ -223,7 +223,7 @@ categories:
 
 - `docs/study/` 使用 `校内`
 - `docs/ctf/` 使用 `CTF`
-- `docs/sth/` 使用 `随笔`
+- `docs/sth/` 使用 `杂篇`
 
 否则该文章可能出现在文章收集中，却不会进入该篇章的左侧分类树。
 
@@ -533,7 +533,7 @@ SECTION_TITLES = {
 SECTION_CATEGORY_ROOTS = {
     "study": "校内",
     "ctf": "CTF",
-    "sth": "随笔",
+    "sth": "杂篇",
     "reading": "阅读",
 }
 ```
@@ -785,4 +785,3 @@ git -c http.proxy=http://127.0.0.1:10808 push
 - [ ] GitHub Actions 的 `deploy` 工作流成功
 - [ ] 线上 <https://tangentzx.github.io/> 已更新
 - [ ] `legacy-hexo-source` 和 `legacy-hexo-site` 仍保留
-

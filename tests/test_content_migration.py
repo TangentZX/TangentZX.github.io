@@ -95,15 +95,15 @@ class MigratedRepositoryTests(unittest.TestCase):
             ),
             "docs/sth/ArchLinux 折腾心得.md": (
                 "Tangent丶ZX",
-                [["随笔", "Linux"]],
+                [["杂篇", "Linux"]],
             ),
             "docs/sth/流光协奏之梦.md": (
                 "Tangent丶ZX",
-                [["随笔", "流光协奏"]],
+                [["杂篇", "流光协奏"]],
             ),
             "docs/sth/郑州强网论坛 学习心得.md": (
                 "Tangent丶ZX",
-                [["随笔", "游记"]],
+                [["杂篇", "游记"]],
             ),
         }
 

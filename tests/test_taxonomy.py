@@ -18,7 +18,7 @@ class TaxonomyCollectorTests(unittest.TestCase):
         )
         self.assertEqual(
             taxonomy.SECTION_CATEGORY_ROOTS,
-            {"study": "校内", "ctf": "CTF", "sth": "随笔"},
+            {"study": "校内", "ctf": "CTF", "sth": "杂篇"},
         )
 
     def test_collects_all_migrated_taxonomy(self):
@@ -156,7 +156,7 @@ class TaxonomySyncTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             docs = Path(temporary)
             titles = {"study": "校内篇", "ctf": "CTF篇", "sth": "杂篇"}
-            roots = {"study": "校内", "ctf": "CTF", "sth": "随笔"}
+            roots = {"study": "校内", "ctf": "CTF", "sth": "杂篇"}
             for section, title in titles.items():
                 directory = docs / section
                 directory.mkdir(parents=True)

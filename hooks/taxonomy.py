@@ -13,7 +13,7 @@ import yaml
 
 
 SECTION_TITLES = {"study": "校内篇", "ctf": "CTF篇", "sth": "杂篇"}
-SECTION_CATEGORY_ROOTS = {"study": "校内", "ctf": "CTF", "sth": "随笔"}
+SECTION_CATEGORY_ROOTS = {"study": "校内", "ctf": "CTF", "sth": "杂篇"}
 START = "<!-- taxonomy:articles:start -->"
 END = "<!-- taxonomy:articles:end -->"
 
