@@ -41,131 +41,108 @@
   margin-top: 1.2rem;
 }
 
-.taxonomy-categories h2,
-.taxonomy-categories h3,
-.taxonomy-categories h4,
-.taxonomy-categories h5,
-.taxonomy-categories h6 {
+.taxonomy-categories .taxonomy-branch {
+  --taxonomy-current-branch: var(--taxonomy-branch-h2);
   position: relative;
   min-width: 0;
+  margin-top: 1rem;
+  padding-bottom: 0.2rem;
+  padding-left: var(--taxonomy-indent);
+  border-left: 1px solid var(--taxonomy-current-branch);
+}
+
+.taxonomy-categories > .taxonomy-branch {
+  margin-top: 1.85rem;
+}
+
+.taxonomy-categories .taxonomy-branch--depth-2 {
+  --taxonomy-current-branch: var(--taxonomy-branch-h2);
+  border-left-width: 0.22rem;
+}
+
+.taxonomy-categories .taxonomy-branch--depth-3 {
+  --taxonomy-current-branch: var(--taxonomy-branch-h3);
+}
+
+.taxonomy-categories .taxonomy-branch--depth-4 {
+  --taxonomy-current-branch: var(--taxonomy-branch-h4);
+}
+
+.taxonomy-categories .taxonomy-branch--depth-5 {
+  --taxonomy-current-branch: var(--taxonomy-branch-h5);
+}
+
+.taxonomy-categories .taxonomy-branch--depth-6 {
+  --taxonomy-current-branch: var(--taxonomy-branch-h6);
+}
+
+.taxonomy-categories .taxonomy-branch > h2,
+.taxonomy-categories .taxonomy-branch > h3,
+.taxonomy-categories .taxonomy-branch > h4,
+.taxonomy-categories .taxonomy-branch > h5,
+.taxonomy-categories .taxonomy-branch > h6 {
+  position: relative;
+  min-width: 0;
+  margin-top: 0;
   padding-block: 0.12rem;
   padding-right: 0.35rem;
   line-height: 1.35;
 }
 
-.taxonomy-categories h2 {
-  margin: 1.85rem 0 0.75rem;
-  padding-left: 0.8rem;
+.taxonomy-categories .taxonomy-branch > h2 {
+  margin-bottom: 0.75rem;
   font-size: 1.38em;
   font-weight: 650;
-  border-left: 0.22rem solid var(--taxonomy-branch-h2);
 }
 
-.taxonomy-categories h3,
-.taxonomy-categories h4,
-.taxonomy-categories h5,
-.taxonomy-categories h6 {
-  margin-top: 1rem;
+.taxonomy-categories .taxonomy-branch > h3,
+.taxonomy-categories .taxonomy-branch > h4,
+.taxonomy-categories .taxonomy-branch > h5,
+.taxonomy-categories .taxonomy-branch > h6 {
   margin-bottom: 0.35rem;
-  padding-left: 0.7rem;
 }
 
-.taxonomy-categories h3 {
-  margin-left: calc(var(--taxonomy-indent) * 1);
+.taxonomy-categories .taxonomy-branch > h3 {
   font-size: 1.16em;
   font-weight: 620;
-  border-left: 1px solid var(--taxonomy-branch-h3);
 }
 
-.taxonomy-categories h4 {
-  margin-left: calc(var(--taxonomy-indent) * 2);
+.taxonomy-categories .taxonomy-branch > h4 {
   font-size: 1.06em;
   font-weight: 600;
-  border-left: 1px solid var(--taxonomy-branch-h4);
 }
 
-.taxonomy-categories h5 {
-  margin-left: calc(var(--taxonomy-indent) * 3);
+.taxonomy-categories .taxonomy-branch > h5 {
   font-size: 1em;
   font-weight: 580;
-  border-left: 1px solid var(--taxonomy-branch-h5);
 }
 
-.taxonomy-categories h6 {
-  margin-left: calc(var(--taxonomy-indent) * 4);
+.taxonomy-categories .taxonomy-branch > h6 {
   font-size: 1em;
   font-weight: 560;
-  border-left: 1px solid var(--taxonomy-branch-h6);
 }
 
-.taxonomy-categories h3::before,
-.taxonomy-categories h4::before,
-.taxonomy-categories h5::before,
-.taxonomy-categories h6::before {
+.taxonomy-categories .taxonomy-branch > h2::before,
+.taxonomy-categories .taxonomy-branch > h3::before,
+.taxonomy-categories .taxonomy-branch > h4::before,
+.taxonomy-categories .taxonomy-branch > h5::before,
+.taxonomy-categories .taxonomy-branch > h6::before {
   position: absolute;
   top: 50%;
-  left: -0.55rem;
-  width: 0.55rem;
-  border-top: 1px solid transparent;
+  left: calc(var(--taxonomy-indent) * -1);
+  width: var(--taxonomy-indent);
+  border-top: 1px solid var(--taxonomy-current-branch);
   content: "";
 }
 
-.taxonomy-categories h3::before {
-  border-top-color: var(--taxonomy-branch-h3);
-}
-
-.taxonomy-categories h4::before {
-  border-top-color: var(--taxonomy-branch-h4);
-}
-
-.taxonomy-categories h5::before {
-  border-top-color: var(--taxonomy-branch-h5);
-}
-
-.taxonomy-categories h6::before {
-  border-top-color: var(--taxonomy-branch-h6);
-}
-
-.taxonomy-categories ul {
-  --taxonomy-list-branch: var(--taxonomy-branch-h2);
+.taxonomy-categories .taxonomy-branch > ul {
   margin-top: 0.15rem;
-  margin-bottom: 1rem;
-  padding: 0.15rem 0 0.2rem 0.75rem;
+  margin-bottom: 0.8rem;
+  padding: 0.15rem 0 0.2rem;
   list-style: none;
-  border-left: 1px solid var(--taxonomy-list-branch);
 }
 
-.taxonomy-categories h2 + ul {
-  --taxonomy-list-branch: var(--taxonomy-branch-h2);
-  margin-left: 0.1rem;
-  border-left-color: var(--taxonomy-branch-h2);
-}
-
-.taxonomy-categories h3 + ul {
-  --taxonomy-list-branch: var(--taxonomy-branch-h3);
-  margin-left: calc(var(--taxonomy-indent) * 1 + 0.1rem);
-  border-left-color: var(--taxonomy-branch-h3);
-}
-
-.taxonomy-categories h4 + ul {
-  --taxonomy-list-branch: var(--taxonomy-branch-h4);
-  margin-left: calc(var(--taxonomy-indent) * 2 + 0.1rem);
-  border-left-color: var(--taxonomy-branch-h4);
-}
-
-.taxonomy-categories h5 + ul {
-  --taxonomy-list-branch: var(--taxonomy-branch-h5);
-  margin-left: calc(var(--taxonomy-indent) * 3 + 0.1rem);
-  border-left-color: var(--taxonomy-branch-h5);
-}
-
-.taxonomy-categories h6 + ul {
-  --taxonomy-list-branch: var(--taxonomy-branch-h6);
-  margin-left: calc(var(--taxonomy-indent) * 4 + 0.1rem);
-  border-left-color: var(--taxonomy-branch-h6);
-}
-
-.taxonomy-categories ul > li {
+.taxonomy-categories .taxonomy-branch > ul > li {
   position: relative;
   display: grid;
   grid-template-columns: 6.4rem 0.6rem minmax(0, 1fr);
@@ -177,12 +154,12 @@
   transition: background-color 140ms ease;
 }
 
-.taxonomy-categories ul > li::before {
+.taxonomy-categories .taxonomy-branch > ul > li::before {
   position: absolute;
   top: 1.05em;
-  left: -0.75rem;
-  width: 0.65rem;
-  border-top: 1px solid var(--taxonomy-list-branch);
+  left: calc(var(--taxonomy-indent) * -1);
+  width: var(--taxonomy-indent);
+  border-top: 1px solid var(--taxonomy-current-branch);
   content: "";
 }
 
@@ -287,23 +264,14 @@
     --taxonomy-indent: 0.72rem;
   }
 
-  .taxonomy-categories h2 {
+  .taxonomy-categories .taxonomy-branch > h2 {
     font-size: 1.25em;
   }
 
-  .taxonomy-categories ul {
-    padding-left: 0.55rem;
-  }
-
-  .taxonomy-categories ul > li {
+  .taxonomy-categories .taxonomy-branch > ul > li {
     grid-template-columns: 5.35rem minmax(0, 1fr);
     column-gap: 0.45rem;
     padding-inline: 0.35rem;
-  }
-
-  .taxonomy-categories ul > li::before {
-    left: -0.55rem;
-    width: 0.5rem;
   }
 
   .taxonomy-article__date {

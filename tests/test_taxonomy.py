@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 import tempfile
 import unittest
 
@@ -110,6 +111,33 @@ class TaxonomyCollectorTests(unittest.TestCase):
         self.assertEqual(rendered.count('class="taxonomy-article__separator"'), 2)
         self.assertIn('[Dated article](<dated.md>)', rendered)
         self.assertIn('[Undated article](<undated.md>)', rendered)
+
+    def test_category_tree_wraps_balanced_nested_depth_branches(self):
+        article = taxonomy.Article(
+            path=Path("study/deep.md"),
+            title="Deep article",
+            date_text="2026-08-05",
+            date_key=(2026, 8, 5),
+            categories=(("Root", "Child", "Grandchild", "Fourth", "Fifth", "Sixth"),),
+            tags=(),
+            section="study",
+        )
+
+        rendered = taxonomy.render_categories([article])
+        branch_tokens = re.findall(
+            r'<section class="taxonomy-branch taxonomy-branch--depth-(\d)" markdown>|</section>',
+            rendered,
+        )
+
+        self.assertEqual(
+            [token for token in branch_tokens if token],
+            ["2", "3", "4", "5", "6", "6"],
+        )
+        self.assertEqual(branch_tokens.count(""), 6)
+        self.assertEqual(rendered[: rendered.index("</section>")].count("<section"), 6)
+        self.assertIn("## Root", rendered)
+        self.assertIn("###### Sixth", rendered)
+        self.assertIn("[Deep article](<../study/deep.md>)", rendered)
 
     def test_renderers_emit_links_hierarchy_and_tag_cloud(self):
         articles = taxonomy.collect_articles(ROOT / "docs")

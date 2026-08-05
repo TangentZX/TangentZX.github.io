@@ -152,10 +152,20 @@ def _render_category_tree(tree: dict, base_dir: Path) -> str:
     def visit(node: dict, depth: int) -> None:
         for name in (key for key in node if key != "__articles__"):
             child = node[name]
-            lines.extend(("", f"{'#' * min(depth + 2, 6)} {name}", ""))
+            heading_level = min(depth + 2, 6)
+            lines.extend(
+                (
+                    "",
+                    f'<section class="taxonomy-branch taxonomy-branch--depth-{heading_level}" markdown>',
+                    "",
+                    f"{'#' * heading_level} {name}",
+                    "",
+                )
+            )
             if child.get("__articles__"):
                 lines.append(render_article_list(child["__articles__"], base_dir))
             visit(child, depth + 1)
+            lines.extend(("", "</section>"))
 
     visit(tree, 0)
     return "\n".join(lines).strip()

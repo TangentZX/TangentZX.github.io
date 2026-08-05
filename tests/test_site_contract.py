@@ -126,10 +126,10 @@ class SiteContractTests(unittest.TestCase):
             "--taxonomy-accent: #7dafe9",
             "--taxonomy-hover: rgba(97, 113, 245, 0.08)",
             "--taxonomy-hover: rgba(125, 175, 233, 0.12)",
-            ".taxonomy-categories h2",
-            ".taxonomy-categories h3::before",
-            ".taxonomy-categories h4::before",
-            ".taxonomy-categories ul > li::before",
+            ".taxonomy-categories .taxonomy-branch > h2",
+            ".taxonomy-categories .taxonomy-branch > h3::before",
+            ".taxonomy-categories .taxonomy-branch > h4::before",
+            ".taxonomy-categories .taxonomy-branch > ul > li::before",
             "grid-template-columns: 6.4rem 0.6rem minmax(0, 1fr)",
             ".taxonomy-article__date",
             ".taxonomy-categories li:focus-within",
@@ -164,24 +164,46 @@ class SiteContractTests(unittest.TestCase):
         self.assertEqual(len(set(depth_values[:5])), 5)
         self.assertEqual(len(set(depth_values[5:])), 5)
 
+    def test_taxonomy_branch_wrappers_own_continuous_rails(self):
+        css = (ROOT / "docs/resources/css/taxonomy.css").read_text(encoding="utf-8")
+
+        self.assertRegex(
+            css,
+            r"(?s)\.taxonomy-categories \.taxonomy-branch \{[^}}]*"
+            r"border-left: 1px solid var\(--taxonomy-current-branch\)",
+        )
         for level in range(2, 7):
             self.assertRegex(
                 css,
-                rf"(?s)\.taxonomy-categories h{level} \{{[^}}]*"
-                rf"border-left: [^;]+var\(--taxonomy-branch-h{level}\)",
-            )
-            self.assertRegex(
-                css,
-                rf"(?s)\.taxonomy-categories h{level} \+ ul \{{[^}}]*"
-                rf"border-left-color: var\(--taxonomy-branch-h{level}\)",
+                rf"(?s)\.taxonomy-categories \.taxonomy-branch--depth-{level} \{{[^}}]*"
+                rf"--taxonomy-current-branch: var\(--taxonomy-branch-h{level}\)",
             )
 
-        for level in range(3, 7):
-            self.assertRegex(
-                css,
-                rf"(?s)\.taxonomy-categories h{level}::before \{{[^}}]*"
-                rf"border-top-color: var\(--taxonomy-branch-h{level}\)",
+        self.assertIn(
+            ".taxonomy-categories .taxonomy-branch > h2::before",
+            css,
+        )
+        self.assertIn(
+            "border-top: 1px solid var(--taxonomy-current-branch)",
+            css,
+        )
+
+        for selectors, declarations in re.findall(r"([^{}]+)\{([^{}]*)\}", css):
+            selectors = selectors.strip()
+            owns_heading = (
+                re.search(
+                    r"\.taxonomy-categories (?:\.taxonomy-branch > )?h[2-6](?:\s*,|\s*$)",
+                    selectors,
+                )
+                and "::before" not in selectors
+                and "+ ul" not in selectors
             )
+            owns_list = selectors in {
+                ".taxonomy-categories ul",
+                ".taxonomy-categories .taxonomy-branch > ul",
+            }
+            if owns_heading or owns_list:
+                self.assertNotIn("border-left", declarations, selectors)
 
     def test_secondary_toc_follows_the_active_heading(self):
         config = load_mkdocs_config(ROOT)
