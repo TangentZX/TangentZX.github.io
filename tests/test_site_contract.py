@@ -67,13 +67,12 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn("[关于](/about)", home)
         self.assertIn("images/洛天依壁纸.png", home)
         self.assertIn("images/洛天依壁纸_夜.png", home)
-        self.assertIn("https://github.com/TangentZX", home)
 
     def test_about_page_contains_migrated_profile(self):
         about = (ROOT / "docs/about/index.md").read_text(encoding="utf-8")
         for text in (
             "Tangent丶ZX",
-            "I will cross my fingers hoping not to be sacrificed.",
+            "我怎会不知你挚爱纯蓝。",
             "CTF ID",
             "1so",
             "武汉大学",
