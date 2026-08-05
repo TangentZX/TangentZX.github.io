@@ -123,6 +123,8 @@ class SiteContractTests(unittest.TestCase):
         for token in (
             "--taxonomy-accent: #6171f5",
             "--taxonomy-accent: #7dafe9",
+            "--taxonomy-hover: rgba(97, 113, 245, 0.08)",
+            "--taxonomy-hover: rgba(125, 175, 233, 0.12)",
             ".taxonomy-categories h2",
             ".taxonomy-categories h3::before",
             ".taxonomy-categories h4::before",
@@ -130,6 +132,7 @@ class SiteContractTests(unittest.TestCase):
             "grid-template-columns: 6.4rem 0.6rem minmax(0, 1fr)",
             ".taxonomy-article__date",
             ".taxonomy-categories li:focus-within",
+            "background-color: var(--taxonomy-hover)",
             "@media (max-width: 44rem)",
             "grid-template-columns: 5.35rem minmax(0, 1fr)",
         ):
