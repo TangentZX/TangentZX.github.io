@@ -1,0 +1,22 @@
+.md-sidebar--secondary .md-nav__link {
+  position: relative;
+  border-radius: 6px;
+  transition: color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+
+.md-sidebar--secondary .md-nav__link:hover {
+  background: rgba(63, 81, 181, 0.08);
+  transform: translateX(3px);
+}
+
+.md-sidebar--secondary .md-nav__link--active::before,
+.md-sidebar--secondary .md-nav__item--active > .md-nav__link::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -0.55rem;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #3f51b5, #7986cb);
+  content: "";
+}
