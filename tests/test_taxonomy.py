@@ -100,6 +100,10 @@ class TaxonomyCollectorTests(unittest.TestCase):
             rendered,
         )
         self.assertIn(
+            '<span class="taxonomy-article__date">未注明日期</span>',
+            rendered,
+        )
+        self.assertNotIn(
             '<time class="taxonomy-article__date">未注明日期</time>',
             rendered,
         )

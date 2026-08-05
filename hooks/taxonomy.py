@@ -114,14 +114,15 @@ def _relative_link(article: Article, base_dir: Path) -> str:
 def render_article_list(articles: list[Article], base_dir: Path) -> str:
     lines = []
     for article in articles:
-        shown_date = article.date_text or "未注明日期"
-        datetime_attribute = (
-            f' datetime="{escape(article.date_text)}"' if article.date_text else ""
+        date_markup = (
+            f'<time class="taxonomy-article__date" datetime="{escape(article.date_text)}">'
+            f'{escape(article.date_text)}</time>'
+            if article.date_text
+            else '<span class="taxonomy-article__date">未注明日期</span>'
         )
         link = _relative_link(article, base_dir)
         lines.append(
-            f'- <time class="taxonomy-article__date"{datetime_attribute}>'
-            f'{escape(shown_date)}</time>'
+            f'- {date_markup}'
             '<span class="taxonomy-article__separator" aria-hidden="true">·</span>'
             f'[{article.title}](<{link}>)'
         )

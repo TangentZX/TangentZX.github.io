@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 import unittest
 
 import yaml
@@ -137,6 +138,50 @@ class SiteContractTests(unittest.TestCase):
             "grid-template-columns: 5.35rem minmax(0, 1fr)",
         ):
             self.assertIn(token, css)
+
+    def test_taxonomy_branch_colors_follow_heading_depth(self):
+        css = (ROOT / "docs/resources/css/taxonomy.css").read_text(encoding="utf-8")
+
+        depth_values = re.findall(
+            r"--taxonomy-branch-h[2-6]: ([^;]+);",
+            css,
+        )
+        self.assertEqual(
+            depth_values,
+            [
+                "#6171f5",
+                "rgba(97, 113, 245, 0.30)",
+                "rgba(97, 113, 245, 0.24)",
+                "rgba(97, 113, 245, 0.18)",
+                "rgba(97, 113, 245, 0.12)",
+                "#7dafe9",
+                "rgba(125, 175, 233, 0.36)",
+                "rgba(125, 175, 233, 0.29)",
+                "rgba(125, 175, 233, 0.22)",
+                "rgba(125, 175, 233, 0.15)",
+            ],
+        )
+        self.assertEqual(len(set(depth_values[:5])), 5)
+        self.assertEqual(len(set(depth_values[5:])), 5)
+
+        for level in range(2, 7):
+            self.assertRegex(
+                css,
+                rf"(?s)\.taxonomy-categories h{level} \{{[^}}]*"
+                rf"border-left: [^;]+var\(--taxonomy-branch-h{level}\)",
+            )
+            self.assertRegex(
+                css,
+                rf"(?s)\.taxonomy-categories h{level} \+ ul \{{[^}}]*"
+                rf"border-left-color: var\(--taxonomy-branch-h{level}\)",
+            )
+
+        for level in range(3, 7):
+            self.assertRegex(
+                css,
+                rf"(?s)\.taxonomy-categories h{level}::before \{{[^}}]*"
+                rf"border-top-color: var\(--taxonomy-branch-h{level}\)",
+            )
 
     def test_secondary_toc_follows_the_active_heading(self):
         config = load_mkdocs_config(ROOT)
