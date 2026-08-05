@@ -117,6 +117,24 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn("#7dafe9", css)
         self.assertIn("prefers-reduced-motion: reduce", css)
 
+    def test_taxonomy_uses_connected_tree_styles(self):
+        css = (ROOT / "docs/resources/css/taxonomy.css").read_text(encoding="utf-8")
+
+        for token in (
+            "--taxonomy-accent: #6171f5",
+            "--taxonomy-accent: #7dafe9",
+            ".taxonomy-categories h2",
+            ".taxonomy-categories h3::before",
+            ".taxonomy-categories h4::before",
+            ".taxonomy-categories ul > li::before",
+            "grid-template-columns: 6.4rem 0.6rem minmax(0, 1fr)",
+            ".taxonomy-article__date",
+            ".taxonomy-categories li:focus-within",
+            "@media (max-width: 44rem)",
+            "grid-template-columns: 5.35rem minmax(0, 1fr)",
+        ):
+            self.assertIn(token, css)
+
     def test_secondary_toc_follows_the_active_heading(self):
         config = load_mkdocs_config(ROOT)
         self.assertIn("resources/css/article-content.css", config["extra_css"])
