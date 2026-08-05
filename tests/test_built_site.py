@@ -57,6 +57,21 @@ class BuiltSiteTests(unittest.TestCase):
             for label in labels:
                 self.assertIn(label, html)
 
+    def test_taxonomy_article_rows_keep_semantic_dates_in_built_html(self):
+        for relative in (
+            "study/index.html",
+            "ctf/index.html",
+            "sth/index.html",
+            "archive/categories/index.html",
+        ):
+            html = (SITE / relative).read_text(encoding="utf-8")
+            self.assertIn('class="taxonomy-article__date"', html, relative)
+            self.assertIn('class="taxonomy-article__separator"', html, relative)
+            self.assertRegex(
+                html,
+                r'<time class="taxonomy-article__date" datetime="\d{4}-\d{2}-\d{2}">',
+            )
+
     def test_taxonomy_archive_is_rendered(self):
         categories = (SITE / "archive/categories/index.html").read_text(encoding="utf-8")
         tags = (SITE / "archive/tags/index.html").read_text(encoding="utf-8")

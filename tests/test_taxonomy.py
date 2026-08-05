@@ -73,6 +73,40 @@ class TaxonomyCollectorTests(unittest.TestCase):
             self.assertEqual(by_title["Flat"].categories, (("Notes",), ("Python",)))
             self.assertEqual(by_title["scalar"].date_key, (0, 0, 0))
 
+    def test_article_rows_expose_semantic_dates_without_changing_links(self):
+        dated = taxonomy.Article(
+            path=Path("study/dated.md"),
+            title="Dated article",
+            date_text="2026-08-05",
+            date_key=(2026, 8, 5),
+            categories=(("校内", "笔记"),),
+            tags=(),
+            section="study",
+        )
+        undated = taxonomy.Article(
+            path=Path("study/undated.md"),
+            title="Undated article",
+            date_text="",
+            date_key=(0, 0, 0),
+            categories=(("校内", "笔记"),),
+            tags=(),
+            section="study",
+        )
+
+        rendered = taxonomy.render_article_list([dated, undated], Path("study"))
+
+        self.assertIn(
+            '<time class="taxonomy-article__date" datetime="2026-08-05">2026-08-05</time>',
+            rendered,
+        )
+        self.assertIn(
+            '<time class="taxonomy-article__date">未注明日期</time>',
+            rendered,
+        )
+        self.assertEqual(rendered.count('class="taxonomy-article__separator"'), 2)
+        self.assertIn('[Dated article](<dated.md>)', rendered)
+        self.assertIn('[Undated article](<undated.md>)', rendered)
+
     def test_renderers_emit_links_hierarchy_and_tag_cloud(self):
         articles = taxonomy.collect_articles(ROOT / "docs")
 

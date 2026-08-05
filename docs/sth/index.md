@@ -12,16 +12,16 @@ hide:
 
 ## 游记
 
-- 2026-08-04 · [鹰角FES2026](<鹰角FES2026游记.md>)
-- 2025-11-23 · [郑州游记](<郑州强网论坛 学习心得.md>)
+- <time class="taxonomy-article__date" datetime="2026-08-04">2026-08-04</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[鹰角FES2026](<鹰角FES2026游记.md>)
+- <time class="taxonomy-article__date" datetime="2025-11-23">2025-11-23</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[郑州游记](<郑州强网论坛 学习心得.md>)
 
 ## 流光协奏
 
-- 2025-12-27 · [流光协奏之梦](<流光协奏之梦.md>)
+- <time class="taxonomy-article__date" datetime="2025-12-27">2025-12-27</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[流光协奏之梦](<流光协奏之梦.md>)
 
 ## Linux
 
-- 2025-11-28 · [ArchLinux 折腾心得](<ArchLinux 折腾心得.md>)
+- <time class="taxonomy-article__date" datetime="2025-11-28">2025-11-28</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[ArchLinux 折腾心得](<ArchLinux 折腾心得.md>)
 
 </div>
 <!-- taxonomy:articles:end -->

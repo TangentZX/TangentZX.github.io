@@ -15,16 +15,16 @@ title: 分类
 
 ### 游记
 
-- 2026-08-04 · [鹰角FES2026](<../sth/鹰角FES2026游记.md>)
-- 2025-11-23 · [郑州游记](<../sth/郑州强网论坛 学习心得.md>)
+- <time class="taxonomy-article__date" datetime="2026-08-04">2026-08-04</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[鹰角FES2026](<../sth/鹰角FES2026游记.md>)
+- <time class="taxonomy-article__date" datetime="2025-11-23">2025-11-23</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[郑州游记](<../sth/郑州强网论坛 学习心得.md>)
 
 ### 流光协奏
 
-- 2025-12-27 · [流光协奏之梦](<../sth/流光协奏之梦.md>)
+- <time class="taxonomy-article__date" datetime="2025-12-27">2025-12-27</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[流光协奏之梦](<../sth/流光协奏之梦.md>)
 
 ### Linux
 
-- 2025-11-28 · [ArchLinux 折腾心得](<../sth/ArchLinux 折腾心得.md>)
+- <time class="taxonomy-article__date" datetime="2025-11-28">2025-11-28</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[ArchLinux 折腾心得](<../sth/ArchLinux 折腾心得.md>)
 
 ## 校内
 
@@ -34,21 +34,21 @@ title: 分类
 
 #### 高等数学
 
-- 2026-07-16 · [高等数学A(上)笔记](<../study/高等数学A(上)笔记.md>)
-- 2026-07-16 · [高等数学A(下)笔记](<../study/高等数学A(下)笔记.md>)
+- <time class="taxonomy-article__date" datetime="2026-07-16">2026-07-16</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[高等数学A(上)笔记](<../study/高等数学A(上)笔记.md>)
+- <time class="taxonomy-article__date" datetime="2026-07-16">2026-07-16</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[高等数学A(下)笔记](<../study/高等数学A(下)笔记.md>)
 
 #### 数据结构
 
-- 2026-07-02 · [数据结构实验复习整理](<../study/数据结构实验复习.md>)
-- 2026-06-26 · [数据结构复习整理](<../study/数据结构复习整理.md>)
+- <time class="taxonomy-article__date" datetime="2026-07-02">2026-07-02</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[数据结构实验复习整理](<../study/数据结构实验复习.md>)
+- <time class="taxonomy-article__date" datetime="2026-06-26">2026-06-26</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[数据结构复习整理](<../study/数据结构复习整理.md>)
 
 #### 程序设计(A)(C)
 
-- 2025-10-09 · [程序设计(A)(C)作业](<../study/程序设计(A)(C)作业.md>)
+- <time class="taxonomy-article__date" datetime="2025-10-09">2025-10-09</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[程序设计(A)(C)作业](<../study/程序设计(A)(C)作业.md>)
 
 #### 线性代数
 
-- 2025-10-02 · [线性代数_矩阵笔记](<../study/线性代数-矩阵笔记.md>)
+- <time class="taxonomy-article__date" datetime="2025-10-02">2025-10-02</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[线性代数_矩阵笔记](<../study/线性代数-矩阵笔记.md>)
 
 ## CTF
 
@@ -58,10 +58,10 @@ title: 分类
 
 #### WHUCTF2026校赛
 
-- 2026-04-20 · [CTF辞のWHUCTF2026校赛WP](<../ctf/WHUCTF2026_WP.md>)
+- <time class="taxonomy-article__date" datetime="2026-04-20">2026-04-20</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[CTF辞のWHUCTF2026校赛WP](<../ctf/WHUCTF2026_WP.md>)
 
 #### WHUCTF2025新生赛
 
-- 2025-10-24 · [Tzxy's WHUCTF2025新生赛WP](<../ctf/Tzxy's WHUCTF2025新生赛WP.md>)
+- <time class="taxonomy-article__date" datetime="2025-10-24">2025-10-24</time><span class="taxonomy-article__separator" aria-hidden="true">·</span>[Tzxy's WHUCTF2025新生赛WP](<../ctf/Tzxy's WHUCTF2025新生赛WP.md>)
 
 </div>

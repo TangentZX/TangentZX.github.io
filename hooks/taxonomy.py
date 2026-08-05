@@ -115,8 +115,16 @@ def render_article_list(articles: list[Article], base_dir: Path) -> str:
     lines = []
     for article in articles:
         shown_date = article.date_text or "未注明日期"
+        datetime_attribute = (
+            f' datetime="{escape(article.date_text)}"' if article.date_text else ""
+        )
         link = _relative_link(article, base_dir)
-        lines.append(f"- {shown_date} · [{article.title}](<{link}>)")
+        lines.append(
+            f'- <time class="taxonomy-article__date"{datetime_attribute}>'
+            f'{escape(shown_date)}</time>'
+            '<span class="taxonomy-article__separator" aria-hidden="true">·</span>'
+            f'[{article.title}](<{link}>)'
+        )
     return "\n".join(lines)
 
 
